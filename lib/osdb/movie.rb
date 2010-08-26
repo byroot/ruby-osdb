@@ -1,12 +1,18 @@
 module OSDb
   class Movie
     
+    attr_reader :path
+    
     def initialize(path)
       @path = path
     end
     
     def hash
-      @hash ||= self.class.compute_hash(@path)
+      @hash ||= self.class.compute_hash(path)
+    end
+    
+    def size
+      @size ||= File.size(path)
     end
     
     CHUNK_SIZE = 64 * 1024 # in bytes

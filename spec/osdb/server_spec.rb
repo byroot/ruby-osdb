@@ -5,7 +5,8 @@ describe OSDb::Server do
   before :all do
     @server = OSDb::Server.new(
       :host => 'api.opensubtitles.org', 
-      :path => '/xml-rpc'
+      :path => '/xml-rpc',
+      :timeout => 60 # OS.org is very very slow ....
     )
   end
   
@@ -33,6 +34,45 @@ describe OSDb::Server do
     expect{
       subject.logout
     }.to change{ subject.instance_variable_get('@token') }.from(instance_of(String)).to(nil)
+  end
+  
+  describe "#check_movie_hash" do
+    
+    it 'should identify movie' do
+      subject.check_movie_hash(:moviehash => '37d0c7d0cfcbe280')['data'].should == [{
+        "37d0c7d0cfcbe280" => {
+          "MovieYear" => "1996",
+          "MovieImdbID" => "0117500",
+          "MovieName" => "The Rock",
+          "MovieHash" => "37d0c7d0cfcbe280"
+        }
+      }]
+    end
+    
+  end
+  
+  describe '#search_subtitles' do
+    
+    it 'can search by hash and size' do
+      subs = subject.search_subtitles(:moviehash => 'bd71526264fd8bd9', :moviebytesize => '183406990', :sublanguageid => 'fre')['data']
+      subs.should be_a(Array)
+      subs.length.should >= 2
+      subs.each do |sub|
+        sub['LanguageName'].should == 'French'
+        sub['MovieName'].should == '"How I Met Your Mother"'
+      end
+    end
+    
+    it 'can search by imdbid' do
+      subs = subject.search_subtitles(:imdbid => "0117500", :sublanguageid => 'fre')['data']
+      subs.should be_a(Array)
+      subs.length.should >= 1
+      subs.each do |sub|
+        sub['LanguageName'].should == 'French'
+        sub['MovieName'].should == 'The Rock'
+      end
+    end
+    
   end
   
 end

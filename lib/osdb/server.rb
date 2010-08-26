@@ -32,6 +32,14 @@ module OSDb
       @token = nil
     end
     
+    def check_movie_hash(*hashes)
+      client.call('CheckMovieHash', token, hashes)
+    end
+    
+    def search_subtitles(*queries)
+      client.call('SearchSubtitles', token, queries)
+    end
+    
     def info
       client.call('ServerInfo')
     end
