@@ -7,4 +7,17 @@ Spec::Rake::SpecTask.new(:spec) do |spec|
   spec.spec_files = FileList['spec/**/*_spec.rb']
 end
 
+begin
+  require 'echoe'
+  
+  Echoe.new('osdb', '0.0.1') do |p|
+    p.description    = "Ruby library to access OSDb services like OpenSubtitles.org"
+    p.url            = "http://github.com/byroot/ruby-osdb"
+    p.author         = "Jean Boussier"
+    p.email          = "jean.boussier @nospam@ gmail.com"
+  end
+  
+rescue LoadError
+end
+
 task :default => :spec

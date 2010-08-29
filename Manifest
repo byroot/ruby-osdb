@@ -1,0 +1,10 @@
+Manifest
+Rakefile
+lib/osdb.rb
+lib/osdb/movie.rb
+lib/osdb/server.rb
+lib/osdb/sub.rb
+spec/fixtures/somemovie.avi
+spec/osdb/movie_spec.rb
+spec/osdb/server_spec.rb
+spec/spec_helper.rb
