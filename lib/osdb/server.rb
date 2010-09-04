@@ -10,7 +10,7 @@ module OSDb
     def initialize(options={})
       @username = options[:username] || ''
       @password = options[:password] || ''
-      @language = options[:language] || 'en'
+      @language = options[:language] || 'eng'
       @useragent = options[:useragent] || 'ruby-osdb v0.1'
       @client = ::XMLRPC::Client.new(*options.values_at(:host, :path, :port, :proxy_host, :proxy_port, :http_user, :http_password, :use_ssl, :timeout))
     end
