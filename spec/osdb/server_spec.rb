@@ -54,22 +54,22 @@ describe OSDb::Server do
   describe '#search_subtitles' do
     
     it 'can search by hash and size' do
-      subs = subject.search_subtitles(:moviehash => 'bd71526264fd8bd9', :moviebytesize => '183406990', :sublanguageid => 'fre')['data']
+      subs = subject.search_subtitles(:moviehash => 'bd71526264fd8bd9', :moviebytesize => '183406990', :sublanguageid => 'fre')
       subs.should be_a(Array)
       subs.length.should >= 2
       subs.each do |sub|
-        sub['LanguageName'].should == 'French'
-        sub['MovieName'].should == '"How I Met Your Mother"'
+        sub.language.name.should == 'French'
+        sub.raw_data['MovieName'].should == '"How I Met Your Mother"'
       end
     end
     
     it 'can search by imdbid' do
-      subs = subject.search_subtitles(:imdbid => "0117500", :sublanguageid => 'fre')['data']
+      subs = subject.search_subtitles(:imdbid => "0117500", :sublanguageid => 'fre')
       subs.should be_a(Array)
       subs.length.should >= 1
       subs.each do |sub|
-        sub['LanguageName'].should == 'French'
-        sub['MovieName'].should == 'The Rock'
+        sub.language.name.should == 'French'
+        sub.raw_data['MovieName'].should == 'The Rock'
       end
     end
     

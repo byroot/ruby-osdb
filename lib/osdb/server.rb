@@ -37,7 +37,8 @@ module OSDb
     end
     
     def search_subtitles(*queries)
-      client.call('SearchSubtitles', token, queries)
+      subs = client.call('SearchSubtitles', token, queries)['data']
+      subs ? subs.map{ |s| Sub.new(s) } : []
     end
     
     def info
