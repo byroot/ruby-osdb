@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe OSDb::Server do
+describe OSDb::Movie do
   
   subject do
     OSDb::Movie.new(File.dirname(__FILE__) + '/../fixtures/somemovie.avi')
