@@ -6,8 +6,10 @@ lib/osdb/language.rb
 lib/osdb/movie.rb
 lib/osdb/server.rb
 lib/osdb/sub.rb
+osdb.gemspec
 spec/fixtures/somemovie.avi
 spec/osdb/language_spec.rb
 spec/osdb/movie_spec.rb
 spec/osdb/server_spec.rb
+spec/osdb/sub_spec.rb
 spec/spec_helper.rb
