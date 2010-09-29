@@ -1,0 +1,64 @@
+#!/usr/bin/ruby
+
+require 'optparse'
+require 'uri'
+require 'rubygems'
+require "osdb"
+
+def env_lang
+  OSDb::Language.from_locale(ENV['LANG'])
+end
+
+@options = {:language => env_lang.to_iso639_2b, :force => false }
+@parser ||= OptionParser.new do |opts|
+  opts.banner = "Automatically download subs for your video files using opensubtitle.org"
+  opts.separator ""
+  opts.separator "Usage: getsub [options] VIDEO_FILE [VIDEO_FILE ...]"
+  opts.separator ""
+  opts.separator "Main options:"
+  
+  opts.on("-l", "--language LANGUAGE", "Sub language ISO 963 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+    @options[:language] = language
+  end
+  
+  opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
+end.parse!
+
+
+class OSDb::Movie
+  
+  def has_sub?
+    exist = false
+    %w(.srt .sub).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
+    exist
+  end
+  
+  def sub_path(format)
+    path.gsub(File.extname(path), ".#{format}")
+  end
+  
+end
+
+movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+movies.reject!(&:has_sub?) unless @options[:force]
+
+server = OSDb::Server.new(
+  :host => 'api.opensubtitles.org', 
+  :path => '/xml-rpc', 
+  :timeout => 90, 
+  :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
+) 
+STDOUT.sync = true
+
+movies.each do |movie|
+  puts "* search subs for: #{movie.path}"
+  subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
+  if subs.any?
+    sub_path = movie.sub_path(subs.first.format)
+    puts "download sub to #{sub_path}"
+    %x{ curl '#{subs.first.url}' | gunzip > #{sub_path} & }
+  else
+    puts "no sub found"
+  end
+  puts
+end
