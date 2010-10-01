@@ -6,7 +6,8 @@ describe OSDb::Server do
     @server = OSDb::Server.new(
       :host => 'api.opensubtitles.org', 
       :path => '/xml-rpc',
-      :timeout => 60 # OS.org is very very slow ....
+      :timeout => 60, # OS.org is very very slow ....
+      :useragent => 'OS Test User Agent'
     )
   end
   
@@ -39,14 +40,14 @@ describe OSDb::Server do
   describe "#check_movie_hash" do
     
     it 'should identify movie' do
-      subject.check_movie_hash(:moviehash => '37d0c7d0cfcbe280')['data'].should == [{
+      subject.check_movie_hash('37d0c7d0cfcbe280')['data'].should == {
         "37d0c7d0cfcbe280" => {
           "MovieYear" => "1996",
           "MovieImdbID" => "0117500",
           "MovieName" => "The Rock",
           "MovieHash" => "37d0c7d0cfcbe280"
         }
-      }]
+      }
     end
     
   end

@@ -5,7 +5,7 @@ Currently the implentation is limited to movie identification and subtitles sear
 
 ## Examples
 
-Just read the source of `bin/getsub` it is a typical example of OSDb's capacities
+Just read the source of `bin/getsub` it is a typical example of OSDb's capacities.
 
 ## getsub
 
