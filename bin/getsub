@@ -22,7 +22,8 @@ end
   end
   
   opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
-end.parse!
+end
+@parser.parse!
 
 
 class OSDb::Movie
@@ -39,6 +40,28 @@ class OSDb::Movie
   
 end
 
+def curl_available?
+  %x{ curl --version 2> /dev/null > /dev/null }
+  $?.success?
+end
+
+def wget_available?
+  %x{ wget --version 2> /dev/null > /dev/null }
+  $?.success?
+end
+
+def download!(url, local_path)
+  puts "* download #{url} to #{local_path}"
+  if curl_available?
+    %x{ curl '#{url}' | gunzip > '#{local_path}' }
+  elsif wget_available?
+    %x{ wget -O - '#{url}' | gunzip > '#{local_path}'}
+  else
+    puts "Can't found any curl or wget please install one of them or manualy download your sub"
+    puts url
+  end
+end
+
 movies = ARGV.map{ |path| OSDb::Movie.new(path) }
 movies.reject!(&:has_sub?) unless @options[:force]
 
@@ -50,13 +73,18 @@ server = OSDb::Server.new(
 ) 
 STDOUT.sync = true
 
+if movies.empty?
+  puts "No file provided"
+  puts @parser.help
+  exit 1
+end
+
 movies.each do |movie|
   puts "* search subs for: #{movie.path}"
   subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
   if subs.any?
     sub_path = movie.sub_path(subs.first.format)
-    puts "download sub to #{sub_path}"
-    %x{ curl '#{subs.first.url}' | gunzip > #{sub_path} & }
+    download!(subs.first.url, sub_path)
   else
     puts "no sub found"
   end

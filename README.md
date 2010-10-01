@@ -14,12 +14,6 @@ The osdb gem provide a simple script to find and download the best subtitle on
 
 ### Installation
 
-First `getsub` need `curl` to works. Shiped by default on MacOS X but for a Debian like system:
-
-    $ sudo aptitude install curl
-
-Then install the gem:
-
     $ gem install osdb
 
 ### Usage
