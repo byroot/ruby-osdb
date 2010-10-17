@@ -1,4 +1,5 @@
 Manifest
+README.md
 Rakefile
 bin/getsub
 lib/osdb.rb
