@@ -17,7 +17,9 @@ begin
     p.email          = "jean.boussier @nospam@ gmail.com"
   end
   
-rescue LoadError
+rescue LoadError => e
+  puts "Failed to load Echoe"
+  puts e.message
 end
 
 task :default => :spec
