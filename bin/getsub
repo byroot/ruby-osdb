@@ -62,6 +62,34 @@ def download!(url, local_path)
   end
 end
 
+def group_by_movie_name(subs)
+  subs.inject({}) do |hash, sub| 
+    hash[sub.movie_name] ||= []
+    hash[sub.movie_name] << sub
+    hash
+  end
+end
+
+def ask_user_to_identify_movie(movies)
+  puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
+  puts
+  movies.keys.each_with_index do |name, index|
+    puts " #{index} - #{name}"
+  end
+  puts
+  print 'id: '
+  str = STDIN.gets
+  movies[movies.keys[str.to_i]]
+end
+
+def select_sub(subs)
+  return subs.first if subs.length == 1
+  movies = group_by_movie_name(subs)
+  return movies.values.first.max(&:rating) if movies.length == 1
+  selected_movie_subs = ask_user_to_identify_movie(movies)
+  selected_movie_subs.max(&:rating)
+end
+
 movies = ARGV.map{ |path| OSDb::Movie.new(path) }
 movies.reject!(&:has_sub?) unless @options[:force]
 
@@ -83,10 +111,11 @@ movies.each do |movie|
   puts "* search subs for: #{movie.path}"
   subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
   if subs.any?
-    sub_path = movie.sub_path(subs.first.format)
-    download!(subs.first.url, sub_path)
+    sub = select_sub(subs)
+    sub_path = movie.sub_path(sub.format)
+    download!(sub.url, sub_path)
   else
-    puts "no sub found"
+    puts "* no sub found"
   end
   puts
 end

@@ -7,7 +7,8 @@ describe OSDb::Sub do
       'SubFormat' => 'srt',
       'SubDownloadLink' => 'http://example.com/foo.srt.gz',
       'SubRating' => 7.89,
-      'SubLanguageID' => 'dut'
+      'SubLanguageID' => 'dut',
+      'MovieName' => 'Lock, Stock and Two Smoking Barrels'
     )
   end
   
@@ -18,5 +19,7 @@ describe OSDb::Sub do
   its(:language) { should be_a(OSDb::Language) }
   
   its(:rating) { should == 7.89 }
+  
+  its(:movie_name) { should == 'Lock, Stock and Two Smoking Barrels' }
   
 end
