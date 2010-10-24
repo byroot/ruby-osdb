@@ -6,7 +6,7 @@ describe OSDb::Sub do
     OSDb::Sub.new(
       'SubFormat' => 'srt',
       'SubDownloadLink' => 'http://example.com/foo.srt.gz',
-      'SubRating' => 7.89,
+      'SubRating' => '7.89',
       'SubLanguageID' => 'dut',
       'MovieName' => 'Lock, Stock and Two Smoking Barrels'
     )

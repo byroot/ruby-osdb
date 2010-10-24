@@ -10,7 +10,7 @@ module OSDb
       @url = URI.parse(data['SubDownloadLink'])
       @format = data['SubFormat']
       @language = Language.from_iso639_2b(data['SubLanguageID'])
-      @rating = data['SubRating']
+      @rating = data['SubRating'].to_f
       @movie_name = data['MovieName']
       @raw_data = data
     end
