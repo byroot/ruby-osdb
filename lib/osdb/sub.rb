@@ -15,6 +15,10 @@ module OSDb
       @raw_data = data
     end
     
+    def <=>(other)
+      rating <=> other.rating
+    end
+    
   end
   
 end

@@ -85,9 +85,9 @@ end
 def select_sub(subs)
   return subs.first if subs.length == 1
   movies = group_by_movie_name(subs)
-  return movies.values.first.max(&:rating) if movies.length == 1
+  return movies.values.first.max if movies.length == 1
   selected_movie_subs = ask_user_to_identify_movie(movies)
-  selected_movie_subs.max(&:rating)
+  selected_movie_subs.max
 end
 
 movies = ARGV.map{ |path| OSDb::Movie.new(path) }
