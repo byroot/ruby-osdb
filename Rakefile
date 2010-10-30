@@ -10,7 +10,7 @@ end
 begin
   require 'echoe'
   
-  Echoe.new('osdb', '0.0.3') do |p|
+  Echoe.new('osdb', '0.0.4') do |p|
     p.description    = "Ruby library to access OSDb services like OpenSubtitles.org"
     p.url            = "http://github.com/byroot/ruby-osdb"
     p.author         = "Jean Boussier"
