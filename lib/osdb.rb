@@ -57,4 +57,13 @@ module OSDb
     %x{ wget --version 2> /dev/null > /dev/null }
     $?.success?
   end
+  
+  def self.server
+    @@server ||= OSDb::Server.new(
+      :host => 'api.opensubtitles.org', 
+      :path => '/xml-rpc', 
+      :timeout => 90, 
+      :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
+    ) 
+  end
 end

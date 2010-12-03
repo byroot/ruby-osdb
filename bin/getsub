@@ -30,12 +30,6 @@ def ask_user_to_identify_movie(movies)
   movies[movies.keys[str.to_i]]
 end
 
-server = OSDb::Server.new(
-  :host => 'api.opensubtitles.org', 
-  :path => '/xml-rpc', 
-  :timeout => 90, 
-  :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
-) 
 STDOUT.sync = true
 
 if !options[:dir] && ARGV.empty?
@@ -43,4 +37,4 @@ if !options[:dir] && ARGV.empty?
   exit 1
 end
 
-OSDb::Movie.fetch(server)
+OSDb::Sub.fetch
