@@ -3,7 +3,7 @@
 require 'optparse'
 require 'uri'
 require 'rubygems'
-require File.join(File.dirname(__FILE__), '..', 'lib', 'osdb')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'osdb'))
 
 def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
