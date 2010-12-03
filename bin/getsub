@@ -9,33 +9,7 @@ def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
 
-def log(str='')
-  unless @options[:silent]
-    puts str
-  end
-end
-
-@options = {:languages => [env_lang.to_iso639_2b], :force => false, :dir => nil, :silent => false }
-@parser ||= OptionParser.new do |opts|
-  opts.banner = "Automatically download subs for your video files using opensubtitle.org"
-  opts.separator ""
-  opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
-  opts.separator ""
-  opts.separator "Main options:"
-  
-  opts.on("-l", "--languages LANGUAGES", "Sub language ISO 963 code separated by comma's like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |languages|
-    @options[:languages] = languages.split(',')
-  end
-  
-  opts.on("-d", "--directory DIRECTORY", "Specify a directory to search recursively for movies") do |dir|
-    @options[:dir] = dir
-  end
-  
-  opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
-  
-  opts.on("-s", "--silent", "Don't output anything") { @options[:silent] = true }
-end
-@parser.parse!
+options = OSDb.parse_options
 
 def curl_available?
   %x{ curl --version 2> /dev/null > /dev/null }
@@ -48,14 +22,14 @@ def wget_available?
 end
 
 def download!(url, local_path)
-  log "* download #{url} to #{local_path}"
+  OSDb.log "* download #{url} to #{local_path}"
   if curl_available?
     %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
   elsif wget_available?
     %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
   else
-    log "Can't found any curl or wget please install one of them or manualy download your sub"
-    log url
+    OSDb.log "Can't found any curl or wget please install one of them or manualy download your sub"
+    OSDb.log url
   end
 end
 
@@ -71,7 +45,7 @@ def ask_user_to_identify_movie(movies)
   puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
   puts
   movies.keys.each_with_index do |name, index|
-    log " #{index} - #{name}"
+    puts " #{index} - #{name}"
   end
   puts
   print 'id: '
@@ -87,12 +61,12 @@ def select_sub(subs)
   selected_movie_subs.max
 end
 
-if @options[:dir]
-  movies = Dir.glob(File.join(@options[:dir], '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| OSDb::Movie.new(path) }
+if options[:dir]
+  movies = Dir.glob(File.join(options[:dir], '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| OSDb::Movie.new(path) }
 else
   movies = ARGV.map{ |path| OSDb::Movie.new(path) }
 end
-movies.reject!(&:has_sub?) unless @options[:force]
+movies.reject!(&:has_sub?) unless options[:force]
 
 server = OSDb::Server.new(
   :host => 'api.opensubtitles.org', 
@@ -102,29 +76,28 @@ server = OSDb::Server.new(
 ) 
 STDOUT.sync = true
 
-if !@options[:dir] && ARGV.empty?
-  puts @parser.help
+if !options[:dir] && ARGV.empty?
+  puts OSDb.help
   exit 1
 end
 
 if movies.empty?
   puts "No file(s) provided"
-  puts @parser.help
+  puts OSDb.help
   exit 1
 end
 
 movies.each do |movie|
   begin
-    log "* search subs for: #{movie.path}"
-    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:languages].join(','))
+    OSDb.log "* search subs for: #{movie.path}"
+    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => options[:languages].join(','))
     if subs.any?
       sub = select_sub(subs)
       sub_path = movie.sub_path(sub.format)
       download!(sub.url, sub_path)
     else
-      log "* no sub found"
+      OSDb.log "* no sub found"
     end
-    log
-  rescue
+    OSDb.log
   end
 end
