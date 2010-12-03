@@ -7,7 +7,7 @@ module OSDb
       end
 
       def parse_options
-        @@options = {:languages => [env_lang.to_iso639_2b], :force => false, :dir => nil, :silent => false, :movie_exts => %w{avi,mpg,m4v,mkv,mov} }
+        @@options = {:languages => [env_lang.to_iso639_2b], :force => false, :dir => nil, :silent => false, :movie_exts => %w{avi,mpg,m4v,mkv,mov,ogv} }
 
         @@parser ||= OptionParser.new do |opts|
           opts.banner = "Automatically download subs for your video files using opensubtitles.org"
