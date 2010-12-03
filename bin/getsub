@@ -1,24 +1,28 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require 'optparse'
 require 'uri'
 require 'rubygems'
-require "osdb"
+require "lib/osdb"
 
 def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
 
-@options = {:language => env_lang.to_iso639_2b, :force => false }
+@options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil }
 @parser ||= OptionParser.new do |opts|
   opts.banner = "Automatically download subs for your video files using opensubtitle.org"
   opts.separator ""
-  opts.separator "Usage: getsub [options] VIDEO_FILE [VIDEO_FILE ...]"
+  opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
   opts.separator ""
   opts.separator "Main options:"
   
   opts.on("-l", "--language LANGUAGE", "Sub language ISO 963 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
     @options[:language] = language
+  end
+  
+  opts.on("-d", "--directory DIRECTORY", "Specify a directory to search recursively for movies") do |dir|
+    @options[:dir] = dir
   end
   
   opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
@@ -53,9 +57,9 @@ end
 def download!(url, local_path)
   puts "* download #{url} to #{local_path}"
   if curl_available?
-    %x{ curl '#{url}' | gunzip > '#{local_path}' }
+    %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
   elsif wget_available?
-    %x{ wget -O - '#{url}' | gunzip > '#{local_path}'}
+    %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
   else
     puts "Can't found any curl or wget please install one of them or manualy download your sub"
     puts url
@@ -90,7 +94,11 @@ def select_sub(subs)
   selected_movie_subs.max
 end
 
-movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+if @options[:dir]
+  movies = Dir.glob(File.join(@options[:dir], '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| OSDb::Movie.new(path) }
+else
+  movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+end
 movies.reject!(&:has_sub?) unless @options[:force]
 
 server = OSDb::Server.new(
@@ -108,14 +116,17 @@ if movies.empty?
 end
 
 movies.each do |movie|
-  puts "* search subs for: #{movie.path}"
-  subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
-  if subs.any?
-    sub = select_sub(subs)
-    sub_path = movie.sub_path(sub.format)
-    download!(sub.url, sub_path)
-  else
-    puts "* no sub found"
+  begin
+    puts "* search subs for: #{movie.path}"
+    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
+    if subs.any?
+      sub = select_sub(subs)
+      sub_path = movie.sub_path(sub.format)
+      download!(sub.url, sub_path)
+    else
+      puts "* no sub found"
+    end
+    puts
+  rescue EOFError => e
   end
-  puts
 end
