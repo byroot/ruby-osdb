@@ -7,7 +7,8 @@ module OSDb
       def get_movie_list
 
         if dir = OSDb.options[:dir]
-          movies = Dir.glob(File.join(dir, '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| new(path) }
+          path   = Dir.glob(File.join(dir, '**', "*.{#{OSDb.options[:movie_exts]}}"))
+          movies = path.map { |path| new(path) }
         else
           movies = ARGV.map{ |path| OSDb::Movie.new(path) }
         end
