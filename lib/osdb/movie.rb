@@ -2,6 +2,16 @@ module OSDb
   class Movie
     
     attr_reader :path
+
+    def self.list
+      if dir = OSDb.options[:dir]
+        movies = Dir.glob(File.join(dir, '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| new(path) }
+      else
+        movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+      end
+      movies.reject!(&:has_sub?) unless OSDb.options[:force]
+      movies
+    end
     
     def initialize(path)
       @path = path
