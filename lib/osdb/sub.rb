@@ -46,7 +46,26 @@ module OSDb
           selected_movie_subs = ask_user_to_identify_movie(movies)
           selected_movie_subs.max
         end
-      
+
+        def group_by_movie_name(subs)
+          subs.inject({}) do |hash, sub| 
+            hash[sub.movie_name] ||= []
+            hash[sub.movie_name] << sub
+            hash
+          end
+        end
+
+        def ask_user_to_identify_movie(movies)
+          puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
+          puts
+          movies.keys.each_with_index do |name, index|
+            puts " #{index} - #{name}"
+          end
+          puts
+          print 'id: '
+          str = STDIN.gets
+          movies[movies.keys[str.to_i]]
+        end
     end
     
     def initialize(data)
