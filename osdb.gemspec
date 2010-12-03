@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{osdb}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jean Boussier"]
   s.cert_chain = ["/Users/byroot/.ssh/gem-public_cert.pem"]
-  s.date = %q{2010-10-30}
+  s.date = %q{2010-12-03}
   s.default_executable = %q{getsub}
   s.description = %q{Ruby library to access OSDb services like OpenSubtitles.org}
   s.email = %q{jean.boussier @nospam@ gmail.com}
