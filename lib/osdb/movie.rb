@@ -13,6 +13,23 @@ module OSDb
       movies
     end
     
+    def self.fetch(movies, server)
+      movies.each do |movie|
+        begin
+          OSDb.log "* search subs for: #{movie.path}"
+          subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => options[:languages].join(','))
+          if subs.any?
+            sub = select_sub(subs)
+            sub_path = movie.sub_path(sub.format)
+            OSDb::Sub.download!(sub.url, sub_path)
+          else
+            OSDb.log "* no sub found"
+          end
+          OSDb.log
+        end
+      end
+    end
+    
     def initialize(path)
       @path = path
     end
