@@ -112,6 +112,8 @@ movies.each do |movie|
       puts "* no sub found"
     end
     puts
-  rescue
+  rescue Exception => e
+    puts "#{e.class.name}: #{e.message}:"
+    puts e.backtrace
   end
 end
