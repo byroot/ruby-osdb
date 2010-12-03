@@ -24,7 +24,7 @@ end
   opts.separator "Main options:"
   
   opts.on("-l", "--languages LANGUAGES", "Sub language ISO 963 code separated by comma's like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |languages|
-    @options[:languages] = languages
+    @options[:languages] = languages.split(',')
   end
   
   opts.on("-d", "--directory DIRECTORY", "Specify a directory to search recursively for movies") do |dir|
