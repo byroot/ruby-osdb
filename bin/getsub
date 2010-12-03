@@ -4,6 +4,7 @@ require 'optparse'
 require 'uri'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'osdb')
 
+
 def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
@@ -101,16 +102,21 @@ server = OSDb::Server.new(
 ) 
 STDOUT.sync = true
 
+if !@options[:dir] && ARGV.empty?
+  puts @parser.help
+  exit 1
+end
+
 if movies.empty?
-  log "No file provided" unless ARGV.empty?
-  log @parser.help
+  puts "No file(s) provided"
+  puts @parser.help
   exit 1
 end
 
 movies.each do |movie|
   begin
     log "* search subs for: #{movie.path}"
-    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:languages])
+    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:languages].join(','))
     if subs.any?
       sub = select_sub(subs)
       sub_path = movie.sub_path(sub.format)
