@@ -22,6 +22,10 @@ You just have to execute `getsub` with some video files in arguments:
 
     $ getsub somemovie.avi othermovie.mkv
 
+Or specify a directory to search recursively:
+
+    $ getsub -d ~/Movies
+
 For options details just run:
 
     $ getsub --help
