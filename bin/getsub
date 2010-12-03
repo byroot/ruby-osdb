@@ -8,8 +8,6 @@ def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
 
-options = OSDb.parse_options
-
 def group_by_movie_name(subs)
   subs.inject({}) do |hash, sub| 
     hash[sub.movie_name] ||= []
@@ -31,10 +29,5 @@ def ask_user_to_identify_movie(movies)
 end
 
 STDOUT.sync = true
-
-if !options[:dir] && ARGV.empty?
-  puts OSDb.help
-  exit 1
-end
 
 OSDb::Sub.fetch

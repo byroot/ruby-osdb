@@ -31,6 +31,11 @@ module OSDb
     end
     @parser.parse!
 
+    if !@@options[:dir] && ARGV.empty?
+      puts OSDb.help
+      exit 1
+    end
+
     @@options
   end
   
@@ -39,7 +44,7 @@ module OSDb
   end
   
   def self.options
-    @@options
+    @@options ||= parse_options
   end
   
   def self.log(str='')
