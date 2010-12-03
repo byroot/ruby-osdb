@@ -112,6 +112,6 @@ movies.each do |movie|
       puts "* no sub found"
     end
     puts
-  rescue EOFError => e
+  rescue
   end
 end
