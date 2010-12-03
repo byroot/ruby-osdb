@@ -11,18 +11,6 @@ end
 
 options = OSDb.parse_options
 
-def download!(url, local_path)
-  OSDb.log "* download #{url} to #{local_path}"
-  if OSDb.curl_available?
-    %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
-  elsif OSDb.wget_available?
-    %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
-  else
-    OSDb.log "Can't found any curl or wget please install one of them or manualy download your sub"
-    OSDb.log url
-  end
-end
-
 def group_by_movie_name(subs)
   subs.inject({}) do |hash, sub| 
     hash[sub.movie_name] ||= []
@@ -84,7 +72,7 @@ movies.each do |movie|
     if subs.any?
       sub = select_sub(subs)
       sub_path = movie.sub_path(sub.format)
-      download!(sub.url, sub_path)
+      OSDb::Sub.download!(sub.url, sub_path)
     else
       OSDb.log "* no sub found"
     end
