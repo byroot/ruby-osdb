@@ -9,7 +9,7 @@ def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
 
-@options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil }
+@options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil, :silent => false }
 @parser ||= OptionParser.new do |opts|
   opts.banner = "Automatically download subs for your video files using opensubtitle.org"
   opts.separator ""
@@ -26,6 +26,8 @@ end
   end
   
   opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
+  
+  opts.on("-s", "--silent", "Don't output anything") { @options[:silent] = true }
 end
 @parser.parse!
 
@@ -40,14 +42,14 @@ def wget_available?
 end
 
 def download!(url, local_path)
-  puts "* download #{url} to #{local_path}"
+  log "* download #{url} to #{local_path}"
   if curl_available?
     %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
   elsif wget_available?
     %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
   else
-    puts "Can't found any curl or wget please install one of them or manualy download your sub"
-    puts url
+    log "Can't found any curl or wget please install one of them or manualy download your sub"
+    log url
   end
 end
 
@@ -63,7 +65,7 @@ def ask_user_to_identify_movie(movies)
   puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
   puts
   movies.keys.each_with_index do |name, index|
-    puts " #{index} - #{name}"
+    log " #{index} - #{name}"
   end
   puts
   print 'id: '
@@ -95,23 +97,29 @@ server = OSDb::Server.new(
 STDOUT.sync = true
 
 if movies.empty?
-  puts "No file provided"
-  puts @parser.help
+  loog "No file provided"
+  log @parser.help
   exit 1
+end
+
+def log(str='')
+  unless @options[:silent]
+    puts str
+  end
 end
 
 movies.each do |movie|
   begin
-    puts "* search subs for: #{movie.path}"
+    log "* search subs for: #{movie.path}"
     subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
     if subs.any?
       sub = select_sub(subs)
       sub_path = movie.sub_path(sub.format)
       download!(sub.url, sub_path)
     else
-      puts "* no sub found"
+      log "* no sub found"
     end
-    puts
+    log
   rescue
   end
 end
