@@ -1,6 +1,8 @@
 module OSDb
   class Movie
     
+    EXTENSIONS = %w(avi mpg m4v mkv mov ogv)
+    
     attr_reader :path
     
     def initialize(path)

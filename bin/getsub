@@ -79,11 +79,12 @@ def select_sub(subs)
   selected_movie_subs.max
 end
 
-if @options[:dir]
-  movies = Dir.glob(File.join(@options[:dir], '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| OSDb::Movie.new(path) }
-else
-  movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+def arg_files
+  return ARGV unless @options[:dir]
+  Dir.glob(File.join(@options[:dir], '**', "*.{#{OSDb::Movie::EXTENSIONS.join(',')}}"))
 end
+
+movies = arg_files.map{ |path| OSDb::Movie.new(path) }
 movies.reject!(&:has_sub?) unless @options[:force]
 
 server = OSDb::Server.new(
