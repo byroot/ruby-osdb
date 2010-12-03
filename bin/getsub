@@ -6,4 +6,4 @@ require 'optparse'
 require 'uri'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'osdb')
 
-OSDb::Sub.fetch
+OSDb::Sub.fetch_all

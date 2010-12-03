@@ -7,7 +7,7 @@ module OSDb
     attr_reader :url, :format, :language, :rating, :movie_name, :raw_data
 
     class << self
-      def fetch
+      def fetch_all
         movies = Movie.get_movie_list
         
         movies.each do |movie|
