@@ -29,21 +29,6 @@ end
 end
 @parser.parse!
 
-
-class OSDb::Movie
-  
-  def has_sub?
-    exist = false
-    %w(.srt .sub).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
-    exist
-  end
-  
-  def sub_path(format)
-    path.gsub(File.extname(path), ".#{format}")
-  end
-  
-end
-
 def curl_available?
   %x{ curl --version 2> /dev/null > /dev/null }
   $?.success?

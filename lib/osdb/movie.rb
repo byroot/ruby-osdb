@@ -6,6 +6,16 @@ module OSDb
     def initialize(path)
       @path = path
     end
+
+    def has_sub?
+      exist = false
+      %w(.srt .sub).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
+      exist
+    end
+
+    def sub_path(format)
+      path.gsub(File.extname(path), ".#{format}")
+    end
     
     def hash
       @hash ||= self.class.compute_hash(path)
