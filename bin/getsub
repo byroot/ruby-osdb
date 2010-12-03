@@ -9,6 +9,12 @@ def env_lang
   OSDb::Language.from_locale(ENV['LANG'])
 end
 
+def log(str='')
+  unless @options[:silent]
+    puts str
+  end
+end
+
 @options = {:languages => [env_lang.to_iso639_2b], :force => false, :dir => nil, :silent => false }
 @parser ||= OptionParser.new do |opts|
   opts.banner = "Automatically download subs for your video files using opensubtitle.org"
@@ -97,15 +103,9 @@ server = OSDb::Server.new(
 STDOUT.sync = true
 
 if movies.empty?
-  log "No file provided"
+  log "No file provided" unless ARGV.empty?
   log @parser.help
   exit 1
-end
-
-def log(str='')
-  unless @options[:silent]
-    puts str
-  end
 end
 
 movies.each do |movie|
