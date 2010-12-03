@@ -47,4 +47,14 @@ module OSDb
       puts str
     end
   end
+  
+  def self.curl_available?
+    %x{ curl --version 2> /dev/null > /dev/null }
+    $?.success?
+  end
+
+  def self.wget_available?
+    %x{ wget --version 2> /dev/null > /dev/null }
+    $?.success?
+  end
 end

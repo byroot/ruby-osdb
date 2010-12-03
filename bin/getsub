@@ -11,21 +11,11 @@ end
 
 options = OSDb.parse_options
 
-def curl_available?
-  %x{ curl --version 2> /dev/null > /dev/null }
-  $?.success?
-end
-
-def wget_available?
-  %x{ wget --version 2> /dev/null > /dev/null }
-  $?.success?
-end
-
 def download!(url, local_path)
   OSDb.log "* download #{url} to #{local_path}"
-  if curl_available?
+  if OSDb.curl_available?
     %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
-  elsif wget_available?
+  elsif OSDb.wget_available?
     %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
   else
     OSDb.log "Can't found any curl or wget please install one of them or manualy download your sub"
