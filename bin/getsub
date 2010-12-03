@@ -4,10 +4,6 @@ require 'optparse'
 require 'uri'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'osdb')
 
-def env_lang
-  OSDb::Language.from_locale(ENV['LANG'])
-end
-
 def group_by_movie_name(subs)
   subs.inject({}) do |hash, sub| 
     hash[sub.movie_name] ||= []

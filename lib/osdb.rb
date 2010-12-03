@@ -6,6 +6,10 @@ module OSDb
   autoload :Movie,  "#{base_path}/movie"
   autoload :Server, "#{base_path}/server"
   autoload :Sub,    "#{base_path}/sub"
+
+  def self.env_lang
+    OSDb::Language.from_locale(ENV['LANG'])
+  end
   
   def self.parse_options
     @@options = {:languages => [env_lang.to_iso639_2b], :force => false, :dir => nil, :silent => false }
