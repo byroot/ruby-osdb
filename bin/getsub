@@ -2,7 +2,6 @@
 
 require 'optparse'
 require 'uri'
-require 'rubygems'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'osdb')
 
 def env_lang
