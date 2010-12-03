@@ -60,7 +60,7 @@ describe OSDb::Server do
       subs.length.should >= 2
       subs.each do |sub|
         sub.language.name.should == 'French'
-        sub.raw_data['MovieName'].should == '"How I Met Your Mother"'
+        sub.raw_data['MovieName'].should == 'How I Met Your Mother'
       end
     end
     
