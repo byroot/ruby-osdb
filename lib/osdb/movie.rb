@@ -3,31 +3,49 @@ module OSDb
     
     attr_reader :path
 
-    def self.list
-      if dir = OSDb.options[:dir]
-        movies = Dir.glob(File.join(dir, '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| new(path) }
-      else
-        movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+    class << self
+      def get_movie_list
+        if dir = OSDb.options[:dir]
+          movies = Dir.glob(File.join(dir, '**', '*.{avi,mpg,m4v,mkv,mov}')).map { |path| new(path) }
+        else
+          movies = ARGV.map{ |path| OSDb::Movie.new(path) }
+        end
+        movies.reject(&:has_sub?) unless OSDb.options[:force]
       end
-      movies.reject!(&:has_sub?) unless OSDb.options[:force]
-      movies
-    end
-    
-    def self.fetch(movies, server)
-      movies.each do |movie|
-        begin
-          OSDb.log "* search subs for: #{movie.path}"
-          subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => options[:languages].join(','))
-          if subs.any?
-            sub = select_sub(subs)
-            sub_path = movie.sub_path(sub.format)
-            OSDb::Sub.download!(sub.url, sub_path)
-          else
-            OSDb.log "* no sub found"
+
+      def fetch(server)
+        movies = get_movie_list
+        
+        if movies.empty?
+          OSDb.log "No file(s) provided"
+          OSDb.log OSDb.help
+          exit 1
+        end
+        
+        movies.each do |movie|
+          begin
+            OSDb.log "* search subs for: #{movie.path}"
+            subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => OSDb.options[:languages].join(','))
+            if subs.any?
+              sub = select_sub(subs)
+              sub_path = movie.sub_path(sub.format)
+              OSDb::Sub.download!(sub.url, sub_path)
+            else
+              OSDb.log "* no sub found"
+            end
+            OSDb.log
           end
-          OSDb.log
         end
       end
+
+      private
+        def select_sub(subs)
+          return subs.first if subs.length == 1
+          movies = group_by_movie_name(subs)
+          return movies.values.first.max if movies.length == 1
+          selected_movie_subs = ask_user_to_identify_movie(movies)
+          selected_movie_subs.max
+        end
     end
     
     def initialize(path)
