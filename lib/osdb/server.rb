@@ -39,6 +39,10 @@ module OSDb
     def search_subtitles(*queries)
       subs = client.call('SearchSubtitles', token, queries)['data']
       subs ? subs.map{ |s| Sub.new(s) } : []
+    rescue EOFError
+      []
+    rescue RuntimeError
+      []
     end
     
     def info
