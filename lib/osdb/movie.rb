@@ -29,7 +29,7 @@ module OSDb
 
     def has_sub?
       exist = false
-      %w(.srt .sub).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
+      %w(.srt .sub .smi).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
       exist
     end
 
