@@ -15,9 +15,10 @@ module OSDb
             OSDb.log "* search subs for: #{movie.path}"
             subs = OSDb.server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => OSDb.options[:languages].join(','))
             if subs.any?
-              sub = select_sub(subs)
-              sub_path = movie.sub_path(sub.format)
-              Sub.download!(sub.url, sub_path)
+              if sub = select_sub(subs)
+                sub_path = movie.sub_path(sub.format)
+                Sub.download!(sub.url, sub_path)
+              end
             else
               OSDb.log "* no sub found"
             end
@@ -43,8 +44,11 @@ module OSDb
           return subs.first if subs.length == 1
           movies = group_by_movie_name(subs)
           return movies.values.first.max if movies.length == 1
-          selected_movie_subs = ask_user_to_identify_movie(movies)
-          selected_movie_subs.max
+          if selected_movie_subs = ask_user_to_identify_movie(movies)
+            selected_movie_subs.max
+          else
+            nil
+          end
         end
 
         def group_by_movie_name(subs)
@@ -58,13 +62,14 @@ module OSDb
         def ask_user_to_identify_movie(movies)
           puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
           puts
+          puts " 0 - none of the below"
           movies.keys.each_with_index do |name, index|
-            puts " #{index} - #{name}"
+            puts " #{index+1} - #{name}"
           end
           puts
           print 'id: '
-          str = STDIN.gets
-          movies[movies.keys[str.to_i]]
+          str = STDIN.gets.to_i
+          str == 0 ? false : movies[movies.keys[str.to_i]]
         end
     end
     
