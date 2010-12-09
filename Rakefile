@@ -10,11 +10,11 @@ end
 begin
   require 'echoe'
   
-  Echoe.new('osdb', '0.0.4') do |p|
+  Echoe.new('bartzon-osdb', '0.0.5') do |p|
     p.description    = "Ruby library to access OSDb services like OpenSubtitles.org"
-    p.url            = "http://github.com/byroot/ruby-osdb"
-    p.author         = "Jean Boussier"
-    p.email          = "jean.boussier @nospam@ gmail.com"
+    p.url            = "http://github.com/bartzon/ruby-osdb"
+    p.author         = "Jean Boussier, Bart Zonneveld"
+    p.email          = "jean.boussier @nospam@ gmail.com, loop@superinfinite.com"
   end
   
 rescue LoadError => e
