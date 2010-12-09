@@ -14,7 +14,7 @@ The osdb gem provide a simple script to find and download the best subtitle on
 
 ### Installation
 
-    $ gem install osdb
+    $ gem install bartzon-osdb
 
 ### Usage
 
