@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.description = %q{Ruby library to access OSDb services like OpenSubtitles.org}
   s.email = %q{jean.boussier @nospam@ gmail.com, loop@superinfinite.com}
   s.executables = ["getsub"]
-  s.extra_rdoc_files = ["README.md", "bin/getsub", "lib/osdb.rb", "lib/osdb/language.rb", "lib/osdb/movie.rb", "lib/osdb/server.rb", "lib/osdb/sub.rb"]
-  s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
+  s.extra_rdoc_files = ["README.md", "bin/getsub", "lib/osdb.rb", "lib/osdb/language.rb", "lib/osdb/movie.rb", "lib/osdb/server.rb", "lib/osdb/sub.rb", "lib/osdb/options.rb"]
+  s.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'spec/**/*'].to_a
   s.homepage = %q{http://github.com/bartzon/ruby-osdb}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Osdb", "--main", "README.md"]
   s.require_paths = ["lib"]

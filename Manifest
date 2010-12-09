@@ -5,6 +5,7 @@ bin/getsub
 lib/osdb.rb
 lib/osdb/language.rb
 lib/osdb/movie.rb
+lib/osdb/options.rb
 lib/osdb/server.rb
 lib/osdb/sub.rb
 osdb.gemspec
