@@ -44,7 +44,7 @@ def download!(url, local_path)
   if curl_available?
     %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
   elsif wget_available?
-    %x{ wget -O -quiet - '#{url}' | gunzip > "#{local_path}"}
+    %x{ wget -O - -q '#{url}' | gunzip > "#{local_path}"}
   else
     puts "Can't found any curl or wget please install one of them or manualy download your sub"
     puts url
