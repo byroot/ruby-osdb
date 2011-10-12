@@ -13,16 +13,23 @@ describe OSDb::Server do
   
   subject { @server }
   
-  it 'should respond to #info' do
-    hash_including(
-      "seconds" => instance_of(Float),
-      "last_update_strings" => instance_of(Hash),
+  let(:expected_info) do 
+    {
       "website_url"=>"http://www.opensubtitles.org",
       "contact"=>"admin@opensubtitles.org",
       "application"=>"OpenSuber v0.2",
       "xmlrpc_version"=>"0.1",
-      "xmlrpc_url"=>"http://api.opensubtitles.net/xml-rpc"
-    ).should == subject.info
+      "xmlrpc_url"=>"http://api.opensubtitles.org/xml-rpc"
+    }
+  end
+  
+  it 'should respond to #info' do
+    info = subject.info
+    expected_info.each do |key, value|
+      info[key].should == value
+    end
+    info['seconds'].should be_a(Float)
+    info['last_update_strings'].should be_a(Hash)
   end
   
   it 'should automatically call #login when token is needed' do

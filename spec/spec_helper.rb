@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../lib/osdb'
-require 'spec/autorun'
+require 'rspec'
 
-# Spec Helpers
-Dir[File.dirname(__FILE__) + '/*_spec_helper.rb'].each do |f|
-  require File.expand_path(f)
+RSpec.configure do |c|
+  c.mock_with :rspec
 end
