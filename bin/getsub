@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+# TODO: getsub is becomming a bit to complexe, rewrite it OO or move it in another gem
 require 'optparse'
 require 'uri'
 require 'rubygems'
@@ -60,21 +60,44 @@ def group_by_movie_name(subs)
 end
 
 def ask_user_to_identify_movie(movies)
-  puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
-  puts
   movies.keys.each_with_index do |name, index|
     puts " #{index} - #{name}"
   end
-  puts
   print 'id: '
-  str = STDIN.gets
+  str = STDIN.gets # TODO: rule #1, never trust user input
+  puts
   movies[movies.keys[str.to_i]]
 end
 
+def identify_by_imdb!(server, movie)
+  puts "* could not find sub by hash, trying IMDB"
+  imdb_results = server.search_imdb(:query => movie.name)
+  if imdb_results.any?
+    if imdb_results.length == 1
+      imdb_result = imdb_results.first
+      puts "* found on IMDB with ID: #{imdb_result.imdbid}"
+    else
+      movies = Hash[imdb_results.map{ |r| [r.title, r] }]
+      imdb_result = ask_user_to_identify_movie(movies)
+    end
+    subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
+    if subs.any?
+      select_and_download!(subs, movie)
+    else
+      puts "* no sub found for this movie"
+    end
+  else
+    puts "* no movie found on IMDB"
+  end
+end
+
 def select_sub(subs)
-  return subs.first if subs.length == 1
+  return subs.first if subs.length >= 1
   movies = group_by_movie_name(subs)
   return movies.values.first.max if movies.length == 1
+
+  puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
+  puts
   selected_movie_subs = ask_user_to_identify_movie(movies)
   selected_movie_subs.max
 end
@@ -110,23 +133,11 @@ end
 movies.each do |movie|
   begin
     puts "* search subs for: #{movie.path}"
-
-
     subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
     if subs.any?
       select_and_download!(subs, movie)
     else
-      puts "* could not find sub by hash, trying IMDB"
-      imdb_results = server.search_imdb(:query => movie.name)
-      if imdb_results.any? && imdb_result = imdb_results.first
-        puts "* found on IMDB with #{imdb_result.inspect}"
-        subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
-        if subs.any?
-          select_and_download!(subs, movie)
-        else
-          puts "* no sub found"
-        end
-      end
+      identify_by_imdb!(server, movie)
     end
     puts
   rescue Exception => e
