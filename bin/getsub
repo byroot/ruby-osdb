@@ -79,6 +79,12 @@ def select_sub(subs)
   selected_movie_subs.max
 end
 
+def select_and_download!(subs, movie)
+  sub = select_sub(subs)
+  sub_path = movie.sub_path(sub.format)
+  download!(sub.url, sub_path)
+end
+
 def arg_files
   return ARGV unless @options[:dir]
   Dir.glob(File.join(@options[:dir], '**', "*.{#{OSDb::Movie::EXTENSIONS.join(',')}}"))
@@ -104,13 +110,23 @@ end
 movies.each do |movie|
   begin
     puts "* search subs for: #{movie.path}"
+
+
     subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
     if subs.any?
-      sub = select_sub(subs)
-      sub_path = movie.sub_path(sub.format)
-      download!(sub.url, sub_path)
+      select_and_download!(subs, movie)
     else
-      puts "* no sub found"
+      puts "* could not find sub by hash, trying IMDB"
+      imdb = server.search_imdb(:query => File.basename(movie.path))
+      if imdb.any? && imdb = imdb.first
+        puts "* found on IMDB with #{imdb.inspect}"
+        subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb.id)
+        if subs.any?
+          select_and_download!(subs, movie)
+        else
+          puts "* no sub found"
+        end
+      end
     end
     puts
   rescue Exception => e
