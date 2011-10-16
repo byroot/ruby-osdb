@@ -7,5 +7,6 @@ describe OSDb::Movie do
   end
   
   its(:hash) { should == '243339b48f4e8741' }
+  its(:name) { should == 'somemovie' }
   
 end

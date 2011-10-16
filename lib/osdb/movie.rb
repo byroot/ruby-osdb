@@ -26,6 +26,10 @@ module OSDb
     def size
       @size ||= File.size(path)
     end
+
+    def name
+      @name ||= File.basename(path, File.extname(path))
+    end
     
     CHUNK_SIZE = 64 * 1024 # in bytes
     
