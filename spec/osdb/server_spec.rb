@@ -83,4 +83,15 @@ describe OSDb::Server do
 
   end
 
+  describe "#search_imdb" do
+    it "can search imdb by title" do
+      imdb = subject.search_imdb(:query => "How I Met Your Mother")
+      imdb.length.should == 1
+      imdb.each do |movie|
+        movie.id.should == '0460649'
+        movie.title.should == 'How I Met Your Mother'
+      end
+    end
+  end
+
 end
