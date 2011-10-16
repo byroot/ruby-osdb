@@ -117,10 +117,10 @@ movies.each do |movie|
       select_and_download!(subs, movie)
     else
       puts "* could not find sub by hash, trying IMDB"
-      imdb = server.search_imdb(:query => movie.name)
-      if imdb.any? && imdb = imdb.first
-        puts "* found on IMDB with #{imdb.inspect}"
-        subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb.id)
+      imdb_results = server.search_imdb(:query => movie.name)
+      if imdb_results.any? && imdb_result = imdb_results.first
+        puts "* found on IMDB with #{imdb_result.inspect}"
+        subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
         if subs.any?
           select_and_download!(subs, movie)
         else
