@@ -18,6 +18,10 @@ end
   opts.separator "Main options:"
   
   opts.on("-l", "--language LANGUAGE", "Sub language ISO 963 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+    if language.length != 3
+    	puts "Language should specified as ISO 963 (ie, 3 letters, like 'eng' or 'fre')"
+	exit
+    end
     @options[:language] = language
   end
   
