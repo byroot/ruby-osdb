@@ -52,7 +52,10 @@ describe OSDb::Server do
           "MovieYear" => "1996",
           "MovieImdbID" => "0117500",
           "MovieName" => "The Rock",
-          "MovieHash" => "37d0c7d0cfcbe280"
+          "MovieHash" => "37d0c7d0cfcbe280",
+          "MovieKind" => "movie",
+          "SeriesSeason" => "0",
+          "SeriesEpisode" => "0"
         }
       }
     end
@@ -67,7 +70,7 @@ describe OSDb::Server do
       subs.length.should >= 2
       subs.each do |sub|
         sub.language.name.should == 'French'
-        sub.raw_data['MovieName'].should == 'How I Met Your Mother'
+        sub.raw_data['MovieName'].should =~ /How I Met Your Mother/
       end
     end
 
@@ -85,11 +88,9 @@ describe OSDb::Server do
 
   describe "#search_imdb" do
     it "can search imdb by title" do
-      imdb = subject.search_imdb(:query => "How I Met Your Mother")
-      imdb.length.should == 1
+      imdb = subject.search_imdb(:query => "Troy")
       imdb.each do |movie|
-        movie.imdbid.should == '0460649'
-        movie.title.should == 'How I Met Your Mother'
+        movie.title.should =~ /Troy/
       end
     end
   end
