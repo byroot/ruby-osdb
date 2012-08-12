@@ -3,6 +3,8 @@
 Client library for the [OSDb protocol](http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC).
 Currently the implentation is limited to movie identification and subtitles search
 
+[![Build Status](https://secure.travis-ci.org/byroot/ruby-osdb.png)](http://travis-ci.org/byroot/ruby-osdb)
+
 ## Examples
 
 Just read the source of `bin/getsub` it is a typical example of OSDb's capacities.
