@@ -133,7 +133,7 @@ end
 movies.each do |movie|
   begin
     puts "* search subs for: #{movie.path}"
-    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size, :sublanguageid => @options[:language])
+    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
     if subs.any?
       select_and_download!(subs, movie)
     else
