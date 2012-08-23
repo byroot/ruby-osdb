@@ -16,11 +16,15 @@ end
   opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
   opts.separator ""
   opts.separator "Main options:"
-  
-  opts.on("-l", "--language LANGUAGE", "Sub language ISO 963 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
-    @options[:language] = language
+
+  opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+    if language.to_s.length != 3
+      STDERR.puts "Language should specified as ISO 639-2 (ie, 3 letters, like 'eng' or 'fre')"
+      exit 1
+    end
+    @options[:language] = language.to_s
   end
-  
+
   opts.on("-d", "--directory DIRECTORY", "Specify a directory to search recursively for movies") do |dir|
     @options[:dir] = dir
   end
