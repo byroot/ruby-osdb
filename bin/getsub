@@ -18,6 +18,10 @@ end
   opts.separator "Main options:"
   
   opts.on("-l", "--language LANGUAGE", "Sub language ISO 963 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+    if language.length != 3
+    	puts "Language should specified as ISO 963 (ie, 3 letters, like 'eng' or 'fre')"
+	exit
+    end
     @options[:language] = language
   end
   
@@ -92,7 +96,9 @@ def identify_by_imdb!(server, movie)
 end
 
 def select_sub(subs)
-  return subs.first if subs.length >= 1
+  if subs.length >= 1
+    return preferred_format(sort_by_rank(subs),["srt",'txt']) 
+  end
   movies = group_by_movie_name(subs)
   return movies.values.first.max if movies.length == 1
 
@@ -101,7 +107,27 @@ def select_sub(subs)
   selected_movie_subs = ask_user_to_identify_movie(movies)
   selected_movie_subs.max
 end
-
+# sort subs by rank. uses uploader user rank, downloads count, bad sub reports and sub rating
+# @param Array<OSDb::Sub> subs
+# @return Array<OSDb::Sub> sorted array
+def sort_by_rank(subs)
+  r = subs.sort_by{|s| 
+  	rank = ((s.raw_data['UserRank'].empty? ? 1 : 2) * (s.raw_data['SubDownloadsCnt'].to_i + 1) * (s.raw_data['SubRating'].to_f + 1)) - (s.raw_data['SubBad'].to_i / (s.raw_data['SubDownloadsCnt'].to_i+1))
+	rank
+  }.reverse
+  r
+end
+# select the sub with the preferred format
+# @param Array<OSDb::Sub> subs An array of subs to choose from
+# @param Array<string> formats_orig An ordered list of formats to choose from, eg ["srt","sub","txt"]
+# @return OSDb::Sub
+def preferred_format(subs, formats_orig)
+	formats = formats_orig.reverse
+	subs.sort_by{|sub| 
+		formats.index(formats.find{|format| 
+			sub.raw_data['SubFormat'].index(format)
+		}).to_s}.reverse.first
+end
 def select_and_download!(subs, movie)
   sub = select_sub(subs)
   sub_path = movie.sub_path(sub.format)
@@ -132,8 +158,19 @@ end
 
 movies.each do |movie|
   begin
-    puts "* search subs for: #{movie.path}"
+    puts "* search subs for: #{movie.path} using hash and bytesize"
     subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
+    if ! subs.any?  # if no hash or bytesize match, search for the movie filename
+    	puts "* search subs for: #{movie.path}"
+    	subs = server.search_subtitles( :sublanguageid => @options[:language], :tag => movie.path)
+    end
+    if ! subs.any? # do a last try by doing a full text search of the filename without extension
+	filename = movie.path.split(".")[0..-2].join('.')
+    	puts "* search subs for: #{filename} (full text search)"
+    	subs = server.search_subtitles( :sublanguageid => @options[:language], :query => filename).find_all{|s| 
+		 s.raw_data['SubFileName'].downcase.index(s.raw_data['QueryParameters']['query'].downcase)
+	}
+    end
     if subs.any?
       select_and_download!(subs, movie)
     else
