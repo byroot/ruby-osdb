@@ -73,26 +73,8 @@ def ask_user_to_identify_movie(movies)
   movies[movies.keys[str.to_i]]
 end
 
-def identify_by_imdb!(server, movie)
-  puts "* could not find sub by hash, trying IMDB"
-  imdb_results = server.search_imdb(:query => movie.name)
-  if imdb_results.any?
-    if imdb_results.length == 1
-      imdb_result = imdb_results.first
-      puts "* found on IMDB with ID: #{imdb_result.imdbid}"
-    else
-      movies = Hash[imdb_results.map{ |r| [r.title, r] }]
-      imdb_result = ask_user_to_identify_movie(movies)
-    end
-    subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
-    if subs.any?
-      select_and_download!(subs, movie)
-    else
-      puts "* no sub found for this movie"
-    end
-  else
-    puts "* no movie found on IMDB"
-  end
+def normalize_name(name)
+  name.downcase.gsub(/[\s\.\-\_]+/, ' ')
 end
 
 def select_sub(subs)
@@ -134,17 +116,73 @@ if movies.empty?
   exit 1
 end
 
+def search_by_hash(server, movie)
+  subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
+  subs if subs.any?
+end
+
+def search_by_path(server, movie)
+  subs = server.search_subtitles(:sublanguageid => @options[:language], :tag => movie.path)
+  subs if subs.any?
+end
+
+def search_by_name(server, movie)
+  subs = server.search_subtitles(:sublanguageid => @options[:language], :query => movie.name)
+  normalized_movie_name = normalize_name(movie.name)
+  subs.select! do |sub|
+    normalize_name(sub.filename).index(normalized_movie_name) # MAYBE: Levenshtein ?
+  end
+  subs if subs.any?
+end
+
+def search_by_imdb(server, movie)
+  imdb_results = server.search_imdb(:query => movie.name)
+  if imdb_results.any?
+    if imdb_results.length == 1
+      imdb_result = imdb_results.first
+      puts "* found on IMDB with ID: #{imdb_result.imdbid}"
+    else
+      movies = Hash[imdb_results.map{ |r| [r.title, r] }]
+      imdb_result = ask_user_to_identify_movie(movies)
+    end
+    subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
+    subs if subs.any?
+  end
+end
+
 movies.each do |movie|
   begin
-    puts "* search subs for: #{movie.path}"
-    subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
-    if subs.any?
+    puts "* search subs by hash for: #{movie.path}"
+    subs = search_by_hash(server, movie)
+
+    unless subs
+      puts "* could not find sub by hash, trying IMDB"
+      subs = search_by_imdb(server, movie)
+    end
+
+    unless subs
+      puts "* no matches"
+      puts "* search subs by path"
+      subs = search_by_path(server, movie)
+    end
+
+    unless subs
+      puts "* still no matches"
+      puts "* search subs by filename"
+      subs = search_by_name(server, movie)
+    end
+
+    if subs
       select_and_download!(subs, movie)
     else
-      identify_by_imdb!(server, movie)
+      puts "Nothing worked, you are very unlucky :'("
     end
     puts
   rescue Exception => e
+    puts "Something crashed."
+    puts "Feel free to report the error here: https://github.com/byroot/ruby-osdb/issues"
+    puts "With the following debug informations:"
+    puts
     puts "#{e.class.name}: #{e.message}:"
     puts e.backtrace
   end
