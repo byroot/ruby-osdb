@@ -77,15 +77,18 @@ def normalize_name(name)
   name.downcase.gsub(/[\s\.\-\_]+/, ' ')
 end
 
-def select_sub(subs)
-  return subs.first if subs.length >= 1
-  movies = group_by_movie_name(subs)
-  return movies.values.first.max if movies.length == 1
+def select_movie(movies)
+  return movies.values.first if movies.length == 1
 
   puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
   puts
-  selected_movie_subs = ask_user_to_identify_movie(movies)
-  selected_movie_subs.max
+  ask_user_to_identify_movie(movies)
+end
+
+def select_sub(subs)
+  movies = group_by_movie_name(subs)
+  subs = select_movie(movies)
+  subs.max_by(&:score)
 end
 
 def select_and_download!(subs, movie)
