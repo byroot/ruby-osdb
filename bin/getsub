@@ -30,6 +30,9 @@ end
   end
   
   opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
+
+  opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
+
 end
 @parser.parse!
 
@@ -70,7 +73,7 @@ def ask_user_to_identify_movie(movies)
   print 'id: '
   str = STDIN.gets # TODO: rule #1, never trust user input
   puts
-  movies[movies.keys[str.to_i]]
+  movies[movies.keys[str.to_i]] || []
 end
 
 def normalize_name(name)
@@ -78,21 +81,26 @@ def normalize_name(name)
 end
 
 def select_movie(movies)
-  return movies.values.first if movies.length == 1
+  return movies.values.first || [] if movies.length <= 1
 
   puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
   puts
   ask_user_to_identify_movie(movies)
 end
 
+def select_format(subs)
+  return subs unless @options[:formats]
+  subs.select{ |s| @options[:formats].include?(s.format) }
+end
+
 def select_sub(subs)
+  subs = select_format(subs)
   movies = group_by_movie_name(subs)
   subs = select_movie(movies)
   subs.max_by(&:score)
 end
 
-def select_and_download!(subs, movie)
-  sub = select_sub(subs)
+def download_sub!(sub, movie)
   sub_path = movie.sub_path(sub.format)
   download!(sub.url, sub_path)
 end
@@ -120,13 +128,11 @@ if movies.empty?
 end
 
 def search_by_hash(server, movie)
-  subs = server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
-  subs if subs.any?
+  server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
 end
 
 def search_by_path(server, movie)
-  subs = server.search_subtitles(:sublanguageid => @options[:language], :tag => movie.path)
-  subs if subs.any?
+  server.search_subtitles(:sublanguageid => @options[:language], :tag => movie.path)
 end
 
 def search_by_name(server, movie)
@@ -148,35 +154,34 @@ def search_by_imdb(server, movie)
       movies = Hash[imdb_results.map{ |r| [r.title, r] }]
       imdb_result = ask_user_to_identify_movie(movies)
     end
-    subs = server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
-    subs if subs.any?
+    server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
   end
 end
 
 movies.each do |movie|
   begin
     puts "* search subs by hash for: #{movie.path}"
-    subs = search_by_hash(server, movie)
+    sub = select_sub search_by_hash(server, movie)
 
-    unless subs
+    unless sub
       puts "* could not find sub by hash, trying IMDB"
-      subs = search_by_imdb(server, movie)
+      sub = select_sub search_by_imdb(server, movie)
     end
 
-    unless subs
+    unless sub
       puts "* no matches"
       puts "* search subs by path"
-      subs = search_by_path(server, movie)
+      sub = select_sub search_by_path(server, movie)
     end
 
-    unless subs
+    unless sub
       puts "* still no matches"
       puts "* search subs by filename"
-      subs = search_by_name(server, movie)
+      sub = select_sub search_by_name(server, movie)
     end
 
-    if subs
-      select_and_download!(subs, movie)
+    if sub
+      download_sub!(sub, movie)
     else
       puts "Nothing worked, you are very unlucky :'("
     end
