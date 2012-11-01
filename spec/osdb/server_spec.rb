@@ -93,6 +93,12 @@ describe OSDb::Server do
         movie.title.should =~ /Troy/
       end
     end
+
+    it "can get the details of a movie from an id" do
+      movie_data = subject.get_imdb_movie_details('0176415')['data']
+      movie_data['title'].should == 'El abuelo'
+      movie_data['year'].should == '1998'
+    end
   end
 
 end
