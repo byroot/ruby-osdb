@@ -53,5 +53,9 @@ module OSDb
       client.call('ServerInfo')
     end
 
+    def get_imdb_movie_details(id)
+      client.call('GetIMDBMovieDetails', token, id)
+    end
+
   end
 end
