@@ -54,7 +54,7 @@ module OSDb
     end
 
     def get_imdb_movie_details(id)
-      client.call('GetIMDBMovieDetails', token, id)
+      Movie.new(client.call('GetIMDBMovieDetails', token, id)['data'])
     end
 
   end

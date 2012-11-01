@@ -1,12 +1,16 @@
 module OSDb
   class Movie
-    
+
     EXTENSIONS = %w(avi mpg m4v mkv mov ogv mp4)
-    
-    attr_reader :path
-    
-    def initialize(path)
-      @path = path
+
+    attr_reader :path, :id, :title, :year, :cover, :rating, :raw_data
+
+    def initialize(path_or_data)
+      if path_or_data.is_a?(Hash)
+        initialize_from_hash(path_or_data)
+      else
+        initialize_from_path(path_or_data)
+      end
     end
 
     def has_sub?
@@ -56,6 +60,22 @@ module OSDb
       
       sprintf("%016x", hash)
     end
-    
+
+    protected
+
+    def initialize_from_hash(data)
+      @id = data['id']
+      @title = data['title']
+      @year = data['year'] && data['year'].to_i
+      @cover = data['cover']
+      @rating = data['rating'] && data['rating'].to_f
+      @raw_data = data
+    end
+
+    def initialize_from_path(path)
+      @path = path
+      @raw_data = {}
+    end
+
   end
 end
