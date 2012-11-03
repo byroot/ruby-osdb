@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.opensubtitles.org/xml-rpc
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" ?><methodCall><methodName>LogOut</methodName><params><param><value><string>0ij4vtkcg3lca6023sofhifom7</string></value></param></params></methodCall>
+
+'
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 1.9.3)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '169'
+      Connection:
+      - keep-alive
+      Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '326'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 03 Nov 2012 13:58:54 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+      X-Cache-Backend:
+      - www
+    body:
+      encoding: US-ASCII
+      string: ! "<methodResponse>\n <params>\n  <param>\n   <value>\n    <struct>\n
+        \    <member>\n      <name>status</name>\n      <value><string>200 OK</string></value>\n
+        \    </member>\n     <member>\n      <name>seconds</name>\n      <value><double>0.001</double></value>\n
+        \    </member>\n    </struct>\n   </value>\n  </param>\n </params>\n</methodResponse>"
+    http_version: 
+  recorded_at: Sat, 03 Nov 2012 13:58:57 GMT
+recorded_with: VCR 2.3.0
