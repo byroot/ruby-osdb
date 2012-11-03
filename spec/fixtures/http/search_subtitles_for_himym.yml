@@ -1,0 +1,424 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.opensubtitles.org/xml-rpc
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" ?><methodCall><methodName>SearchSubtitles</methodName><params><param><value><string>0ij4vtkcg3lca6023sofhifom7</string></value></param><param><value><array><data><value><struct><member><name>moviehash</name><value><string>bd71526264fd8bd9</string></value></member><member><name>moviebytesize</name><value><string>183406990</string></value></member><member><name>sublanguageid</name><value><string>fre</string></value></member></struct></value></data></array></value></param></params></methodCall>
+
+'
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 1.9.3)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '517'
+      Connection:
+      - keep-alive
+      Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Set-Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '29213'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 03 Nov 2012 13:58:55 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+      X-Cache-Backend:
+      - www
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
+        <param>\n  <value>\n   <struct>\n    <member>\n     <name>status</name>\n
+        \    <value>\n      <string>200 OK</string>\n     </value>\n    </member>\n
+        \   <member>\n     <name>data</name>\n     <value>\n      <array>\n       <data>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>moviehash</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>117533</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>bd71526264fd8bd9</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>183406990</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>1287000</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1951739419</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>How I Met Your Mother - 2x22 - Something
+        Blue.srt</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>SubActualCD</name>\n           <value>\n            <string>1</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>29532</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>49ba29341936f44b67f87abe58846e57</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>4361038</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>994714</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2008-01-31 17:15:39</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>10.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>1753</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>How I Met Your Mother - Season 2</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>90865</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>1017766</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>&#34;How I Met Your Mother&#34; Something
+        Blue</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>MovieNameEng</name>\n           <value>\n            <string/>\n
+        \          </value>\n          </member>\n          <member>\n           <name>MovieYear</name>\n
+        \          <value>\n            <string>2007</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieImdbRating</name>\n
+        \          <value>\n            <string>8.6</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFeatured</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserNickName</name>\n
+        \          <value>\n            <string>jlauwers</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>ISO639</name>\n
+        \          <value>\n            <string>fr</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>22</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>episode</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>moviehash</name>\n
+        \             <value>\n               <string>bd71526264fd8bd9</string>\n
+        \             </value>\n             </member>\n             <member>\n              <name>moviebytesize</name>\n
+        \             <value>\n               <string>183406990</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1951739419.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/4361038</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/4361038/how-i-met-your-mother-something-blue-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>moviehash</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>872779</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>bd71526264fd8bd9</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>183406990</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952337295</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>How I Met Your Mother S02E22 - Something
+        Blue.xor.VF.srt</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>SubActualCD</name>\n           <value>\n            <string>1</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>32467</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>981146aec08be3d6d8709641d782f5da</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3687427</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>1253306</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2010-06-09 20:10:11</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>333</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string> How I Met Your Mother S02E22 - Something
+        Blue.xor.VF</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>IDMovie</name>\n           <value>\n            <string>90865</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>1017766</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>&#34;How I Met Your Mother&#34; Something
+        Blue</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>MovieNameEng</name>\n           <value>\n            <string/>\n
+        \          </value>\n          </member>\n          <member>\n           <name>MovieYear</name>\n
+        \          <value>\n            <string>2007</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieImdbRating</name>\n
+        \          <value>\n            <string>8.6</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFeatured</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserNickName</name>\n
+        \          <value>\n            <string>omarf1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>ISO639</name>\n
+        \          <value>\n            <string>fr</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>22</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>episode</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>moviehash</name>\n
+        \             <value>\n               <string>bd71526264fd8bd9</string>\n
+        \             </value>\n             </member>\n             <member>\n              <name>moviebytesize</name>\n
+        \             <value>\n               <string>183406990</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952337295.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3687427</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3687427/how-i-met-your-mother-something-blue-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>moviehash</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>1590113</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>bd71526264fd8bd9</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>183406990</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952188857</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>How I Met Your Mother - 2x22 - Something
+        Blue.srt</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>SubActualCD</name>\n           <value>\n            <string>1</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>24762</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>9d51153ba5ec4b726ab5c6c983d4d93c</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>4328245</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>845334</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2009-09-14 20:03:22</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>480</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>How I Met Your Mother Season 2</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>90865</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>1017766</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>&#34;How I Met Your Mother&#34; Something
+        Blue</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>MovieNameEng</name>\n           <value>\n            <string/>\n
+        \          </value>\n          </member>\n          <member>\n           <name>MovieYear</name>\n
+        \          <value>\n            <string>2007</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieImdbRating</name>\n
+        \          <value>\n            <string>8.6</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFeatured</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserNickName</name>\n
+        \          <value>\n            <string>ZeRoCooL64</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>ISO639</name>\n
+        \          <value>\n            <string>fr</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>bronze member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>22</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>episode</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>moviehash</name>\n
+        \             <value>\n               <string>bd71526264fd8bd9</string>\n
+        \             </value>\n             </member>\n             <member>\n              <name>moviebytesize</name>\n
+        \             <value>\n               <string>183406990</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952188857.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/4328245</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/4328245/how-i-met-your-mother-something-blue-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>moviehash</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>1945333</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>bd71526264fd8bd9</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>183406990</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952693786</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>How I Met Your Mother - 2x22 - Something
+        Blue.fr.srt</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>SubActualCD</name>\n           <value>\n            <string>1</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>32684</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>1f0d06698c8b632edb89e0f72f36e7c1</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>4019688</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>1017601</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2010-12-23 12:26:24</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>148</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string> How I Met Your Mother - 2x22 - Something
+        Blue.fr</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>IDMovie</name>\n           <value>\n            <string>90865</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>1017766</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>&#34;How I Met Your Mother&#34; Something
+        Blue</string>\n           </value>\n          </member>\n          <member>\n
+        \          <name>MovieNameEng</name>\n           <value>\n            <string/>\n
+        \          </value>\n          </member>\n          <member>\n           <name>MovieYear</name>\n
+        \          <value>\n            <string>2007</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieImdbRating</name>\n
+        \          <value>\n            <string>8.6</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFeatured</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserNickName</name>\n
+        \          <value>\n            <string>hrxfab</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>ISO639</name>\n
+        \          <value>\n            <string>fr</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>22</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>episode</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>moviehash</name>\n
+        \             <value>\n               <string>bd71526264fd8bd9</string>\n
+        \             </value>\n             </member>\n             <member>\n              <name>moviebytesize</name>\n
+        \             <value>\n               <string>183406990</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952693786.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/4019688</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/4019688/how-i-met-your-mother-something-blue-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \      </data>\n      </array>\n     </value>\n    </member>\n    <member>\n
+        \    <name>seconds</name>\n     <value>\n      <double>0.011</double>\n     </value>\n
+        \   </member>\n   </struct>\n  </value>\n </param>\n</params>\n</methodResponse>\n"
+    http_version: 
+  recorded_at: Sat, 03 Nov 2012 13:58:59 GMT
+recorded_with: VCR 2.3.0

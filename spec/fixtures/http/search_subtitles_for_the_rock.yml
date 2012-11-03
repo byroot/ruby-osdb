@@ -1,0 +1,1373 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.opensubtitles.org/xml-rpc
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" ?><methodCall><methodName>SearchSubtitles</methodName><params><param><value><string>0ij4vtkcg3lca6023sofhifom7</string></value></param><param><value><array><data><value><struct><member><name>imdbid</name><value><string>0117500</string></value></member><member><name>sublanguageid</name><value><string>fre</string></value></member></struct></value></data></array></value></param></params></methodCall>
+
+'
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 1.9.3)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '421'
+      Connection:
+      - keep-alive
+      Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Set-Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '103156'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 03 Nov 2012 13:58:56 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+      X-Cache-Backend:
+      - www
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
+        <param>\n  <value>\n   <struct>\n    <member>\n     <name>status</name>\n
+        \    <value>\n      <string>200 OK</string>\n     </value>\n    </member>\n
+        \   <member>\n     <name>data</name>\n     <value>\n      <array>\n       <data>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>130869</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.1996.DVDRip-XviD-AC3-HigHoT.CD1.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>53378</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>d8d748ed935bda62b9b80847ba5cc92a</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>96357</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>45344</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2005-05-24 00:00:00</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>220</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>Rock, The (1996)</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>_brucelee_ (a)</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>bronze member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/130869.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/96357</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/96357/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>130870</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.1996.DVDRip-XviD-AC3-HigHoT.CD2.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>41347</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>a4df833343915611ccfa87e676672ee6</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>96357</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>45344</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2005-05-24 00:00:00</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>220</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>Rock, The (1996)</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>_brucelee_ (a)</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>bronze member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/130870.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/96357</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/96357/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>164082</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>rock-1cd.srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>90541</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>d87286f6ee6dd80fbc8297aabf5a9963</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>120493</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>780004</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2005-03-01 00:00:00</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>397</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>fabhawk</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/164082.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/120493</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/120493/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>189526</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The_Rock_fr.sub</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>84125</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>aae70e25befbdc3e076c8b929e0e3a56</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>138327</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>58726</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>txt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2001-09-05 00:00:00</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>373</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>likwid (a)</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>bronze member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/189526.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/138327</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/138327/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>211266</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>Rock.sub</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>68462</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>9de5b205a7418964c394a91420699417</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>155044</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>37141</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>sub</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string>The rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAddDate</name>\n
+        \          <value>\n            <string>2005-03-01 00:00:00</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubBad</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>250</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string> Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>mlapacek (a)</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>platinum member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/211266.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/155044</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/155044/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>259565</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>[35816] Rock, The (1996).srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>95095</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>37897472c795d697c37b0fd50f84940b</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>195910</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>63243</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2004-03-05 00:00:00</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>523</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>Rock, The (1996)</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>BetaMAN (a)</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>platinum member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/259565.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/195910</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/195910/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1951908937</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The Rock.srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>96277</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>65ce3de7357261f1cdb9ccd5ed479b84</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3315479</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2008-08-16 01:41:29</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>1248</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>IDMovie</name>\n           <value>\n
+        \           <string>1589</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>IDMovieImdb</name>\n           <value>\n
+        \           <string>117500</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieName</name>\n           <value>\n
+        \           <string>The Rock</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieNameEng</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>MovieYear</name>\n           <value>\n            <string>1996</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>MovieImdbRating</name>\n
+        \          <value>\n            <string>7.3</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFeatured</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserNickName</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1951908937.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3315479</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3315479/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1951918400</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock[1996]DvDrip[Eng]-Chopper.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>95964</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>dbeca313148d5e79eecfe58c4d3c2adf</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3324276</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string>Sous titres ajust&#195;&#169; par
+        moi.&#13;&#10;Pour la version &#34;Chopper&#34;</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAddDate</name>\n
+        \          <value>\n            <string>2008-08-25 22:36:21</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubBad</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>334</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The.Rock[1996]DvDrip[Eng]-Chopper.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1951918400.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3324276</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3324276/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1951955850</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The Rock[1996]DVDRip[Eng]-NuMy.FR.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>96182</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>503b5ee32dda104dbe5f0ff13dd822ae</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3355464</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>655057</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string>The Rock[1996]DVDRip[Eng]-NuMy</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubAddDate</name>\n
+        \          <value>\n            <string>2008-10-21 00:08:03</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubBad</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>10.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>571</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The Rock[1996]DVDRip[Eng]-NuMy</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1951955850.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3355464</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3355464/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1951956275</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock[1996]DvDrip[Eng]-Chopper.FR.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>96182</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>949fed94361dcb4983cb2567a407257a</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3355850</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>655057</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string>The Rock[1996]DvDrip[Eng]-Chopper</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubAddDate</name>\n
+        \          <value>\n            <string>2008-10-21 17:44:21</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubBad</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>867</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The Rock[1996]DvDrip[Eng]-Chopper</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1951956275.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3355850</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3355850/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952185402</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.1996.720p.BluRay.DTS.x264-ESiR.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>95789</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>ff9db007ef35c9bf5ccc2b812454562f</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3558820</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>1029775</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2009-09-09 05:15:58</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>766</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The.Rock.1996.720p.BluRay.DTS.x264-ESiR</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>XeiS</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>silver member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952185402.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3558820</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3558820/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952300954</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.1996.CE.iNTERNAL.DVDRiP.XviD.AC3.CD1-HLS.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>55417</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>e66518cc969f378714474336d7bec7a8</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3657366</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>399563</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2010-03-24 18:43:02</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>227</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The.Rock.1996.CE.iNTERNAL.DVDRiP.XviD.AC3-HLS</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>darko_xx</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952300954.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3657366</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3657366/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952300955</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.1996.CE.iNTERNAL.DVDRiP.XviD.AC3.CD2-HLS.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>40269</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>e97d079103811b48e9decc3101ae851e</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>3657366</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>399563</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>2</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2010-03-24 18:43:02</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>227</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The.Rock.1996.CE.iNTERNAL.DVDRiP.XviD.AC3-HLS</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string>darko_xx</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string>gold member</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesSeason</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SeriesEpisode</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieKind</name>\n
+        \          <value>\n            <string>movie</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>QueryParameters</name>\n
+        \          <value>\n            <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952300955.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/3657366</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/3657366/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1952859747</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>The.Rock.srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>96941</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>89bbe2b3ff8e3d0885eddd70c8e49554</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>4178414</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2011-05-15 22:34:13</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>307</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1952859747.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/4178414</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/4178414/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \       <value>\n         <struct>\n          <member>\n           <name>MatchedBy</name>\n
+        \          <value>\n            <string>imdbid</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubMovieFile</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieHash</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieByteSize</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieTimeMS</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDSubtitleFile</name>\n
+        \          <value>\n            <string>1953171434</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFileName</name>\n
+        \          <value>\n            <string>Rock.1996.TRUEFRENCH.SUBFORCED.BRRiP.XViD.AC3-HuSh.srt</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubActualCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSize</name>\n
+        \          <value>\n            <string>1323</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHash</name>\n
+        \          <value>\n            <string>07af4ac82580cb3418767125f2a17389</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDSubtitle</name>\n
+        \          <value>\n            <string>4623609</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserID</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubLanguageID</name>\n
+        \          <value>\n            <string>fre</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubFormat</name>\n
+        \          <value>\n            <string>srt</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubSumCD</name>\n
+        \          <value>\n            <string>1</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubAuthorComment</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubAddDate</name>\n           <value>\n
+        \           <string>2012-07-23 05:57:06</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubBad</name>\n           <value>\n            <string>0</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubRating</name>\n
+        \          <value>\n            <string>0.0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubDownloadsCnt</name>\n
+        \          <value>\n            <string>91</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieReleaseName</name>\n
+        \          <value>\n            <string>Rock.1996.TRUEFRENCH.SUBFORCED.BRRiP.XViD.AC3-HuSh</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>IDMovie</name>\n
+        \          <value>\n            <string>1589</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>IDMovieImdb</name>\n
+        \          <value>\n            <string>117500</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieName</name>\n
+        \          <value>\n            <string>The Rock</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>MovieNameEng</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieYear</name>\n           <value>\n
+        \           <string>1996</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieImdbRating</name>\n           <value>\n
+        \           <string>7.3</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubFeatured</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>UserNickName</name>\n           <value>\n
+        \           <string/>\n           </value>\n          </member>\n          <member>\n
+        \          <name>ISO639</name>\n           <value>\n            <string>fr</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>LanguageName</name>\n
+        \          <value>\n            <string>French</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubComments</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>SubHearingImpaired</name>\n
+        \          <value>\n            <string>0</string>\n           </value>\n
+        \         </member>\n          <member>\n           <name>UserRank</name>\n
+        \          <value>\n            <string/>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>MovieKind</name>\n           <value>\n
+        \           <string>movie</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryParameters</name>\n           <value>\n
+        \           <struct>\n             <member>\n              <name>imdbid</name>\n
+        \             <value>\n               <string>0117500</string>\n              </value>\n
+        \            </member>\n             <member>\n              <name>sublanguageid</name>\n
+        \             <value>\n               <string>fre</string>\n              </value>\n
+        \            </member>\n            </struct>\n           </value>\n          </member>\n
+        \         <member>\n           <name>QueryNumber</name>\n           <value>\n
+        \           <string>0</string>\n           </value>\n          </member>\n
+        \         <member>\n           <name>SubDownloadLink</name>\n           <value>\n
+        \           <string>http://dl.opensubtitles.org/en/download/filead/1953171434.gz</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>ZipDownloadLink</name>\n
+        \          <value>\n            <string>http://dl.opensubtitles.org/en/download/subad/4623609</string>\n
+        \          </value>\n          </member>\n          <member>\n           <name>SubtitlesLink</name>\n
+        \          <value>\n            <string>http://www.opensubtitles.org/en/subtitles/4623609/the-rock-fr</string>\n
+        \          </value>\n          </member>\n         </struct>\n        </value>\n
+        \      </data>\n      </array>\n     </value>\n    </member>\n    <member>\n
+        \    <name>seconds</name>\n     <value>\n      <double>0.012</double>\n     </value>\n
+        \   </member>\n   </struct>\n  </value>\n </param>\n</params>\n</methodResponse>\n"
+    http_version: 
+  recorded_at: Sat, 03 Nov 2012 13:59:00 GMT
+recorded_with: VCR 2.3.0
