@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.opensubtitles.org/xml-rpc
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" ?><methodCall><methodName>LogIn</methodName><params><param><value><string></string></value></param><param><value><string></string></value></param><param><value><string>eng</string></value></param><param><value><string>OS
+        Test User Agent</string></value></param></params></methodCall>
+
+'
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 1.9.3)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '304'
+      Connection:
+      - keep-alive
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Set-Cookie:
+      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '504'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 03 Nov 2012 13:58:53 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+      X-Cache-Backend:
+      - www
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
+        <param>\n  <value>\n   <struct>\n    <member>\n     <name>token</name>\n     <value>\n
+        \     <string>0ij4vtkcg3lca6023sofhifom7</string>\n     </value>\n    </member>\n
+        \   <member>\n     <name>status</name>\n     <value>\n      <string>200 OK</string>\n
+        \    </value>\n    </member>\n    <member>\n     <name>seconds</name>\n     <value>\n
+        \     <double>0.014</double>\n     </value>\n    </member>\n   </struct>\n
+        \ </value>\n </param>\n</params>\n</methodResponse>\n"
+    http_version: 
+  recorded_at: Sat, 03 Nov 2012 13:58:57 GMT
+recorded_with: VCR 2.3.0
