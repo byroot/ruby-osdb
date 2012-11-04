@@ -1,271 +1,761 @@
----
-http_interactions:
-- request:
+--- 
+http_interactions: 
+- request: 
     method: post
     uri: http://api.opensubtitles.org/xml-rpc
-    body:
-      encoding: US-ASCII
-      string: ! '<?xml version="1.0" ?><methodCall><methodName>SearchMoviesOnIMDB</methodName><params><param><value><string>0ij4vtkcg3lca6023sofhifom7</string></value></param><param><value><string>Troy</string></value></param></params></methodCall>
+    body: 
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>SearchMoviesOnIMDB</methodName><params><param><value><string>qtqkphpa0us78eikqtdtg4jic7</string></value></param><param><value><string>Troy</string></value></param></params></methodCall>
 
-'
-    headers:
-      User-Agent:
-      - XMLRPC::Client (Ruby 1.9.3)
-      Content-Type:
+    headers: 
+      Accept: 
+      - "*/*"
+      Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7
+      Content-Length: 
+      - "232"
+      User-Agent: 
+      - XMLRPC::Client (Ruby 1.8.7)
+      Content-Type: 
       - text/xml; charset=utf-8
-      Content-Length:
-      - '232'
-      Connection:
+      Connection: 
       - keep-alive
-      Cookie:
-      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
-      Accept:
-      - ! '*/*'
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      Set-Cookie:
-      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7; path=/
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
-      Cache-Control:
-      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-      Pragma:
-      - no-cache
-      Content-Type:
-      - text/xml
-      Content-Length:
-      - '17279'
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Sat, 03 Nov 2012 13:58:58 GMT
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
-      X-Cache:
+    headers: 
+      X-Cache: 
       - MISS
-      X-Cache-Backend:
+      Age: 
+      - "0"
+      X-Cache-Backend: 
       - www
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
-        <param>\n  <value>\n   <struct>\n    <member>\n     <name>status</name>\n
-        \    <value>\n      <string>200 OK</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>data</name>\n     <value>\n      <array>\n       <data>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0332452</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Troy (2004) Photos (</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>1126490</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Call Me Troy (2007)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>0431721</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Denied
-        (2004) aka &#34;Troy Denied&#34; - Canada (English title) (working title)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>2287360</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>A Kid Called Troy (1993)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>0059262</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Hercules
-        and the Princess of Troy (1965) (TV) aka &#34;Hercules vs. the Sea Monster&#34;
-        -</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>0768710</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>The Women of Troy (2006) (V)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0484846</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Helen of Troy (2005) (TV) aka &#34;I oraia Eleni&#34;
-        - Greece (transliterated ISO-LATIN-1 title)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>0422707</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>The
-        Making of 'Troy' (2004) (TV) aka &#34;N&#195;&#164;in tehtiin elokuva Troija&#34;
-        - Finland</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>0462049</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>The True Story of Troy (2004) (TV)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0439021</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Troy: From Ruins to Reality (2005) (V)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>0439022</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Troy:
-        In the Thick of Battle (2005) (V)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>0446541</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Beyond the Movie: Troy (2004) (TV)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0830492</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>&#34;The Troy Cory Evening Show&#34; (1974) (TV series)
-        aka &#34;The Troy Cory Show&#34; - USA (alternative title)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>0439020</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Troy:
-        An Effects Odyssey (2004) (V)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>0770821</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Troy: The Passion of Helen (2004)
-        (TV)</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>0409399</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Troy: The True Story of Love, Power,
-        Honor &#38; the Pursuit of Glory (2004) (V)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>1955057</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Warriors:
-        Legends of Troy (2011) (VG)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>2302499</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>A Life in the Balance: Examining the
-        Troy Davis Case (2011) (V)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>1008665</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Battle for Troy (2004) (VG)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>2148889</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Chillerama Presents: Anton Troy, the Man Behind the Beast
-        (2011)</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>1575549</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Forgiving Troy: The Documentary (2009)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>1918830</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>From Silence: Troy Donockley &#38; Dave Bainbridge (2006)
-        (TV)</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>0473990</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Helene of Troy, N.Y. (1927)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>1315952</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Helen of Troy (1917)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>0014140</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>How Troy Was Collared (1923)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0893352</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Model Workout with Troy Warwell (2006) (V)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>2034066</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>North Troy Roughcut (2010)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>2336401</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Odysseus:
-        The Jetman King of Ithaca's Journey to Troy (2012)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>1570652</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>O
-        kaimos tis Oraias Elenis - Polemos i erotas? (2005) aka &#34;The Yearning
-        of Troy Helen - War or Love?&#34; - International (English title)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>0044044</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Sk&#195;&#182;na Helena (1951) aka &#34;Helen of Troy&#34;
-        - International (English title) aka &#34;Kaunis Helena&#34; - Finland</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>1829039</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>The Epic of Troy Knight (2015)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>1129385</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>The
-        Molders of Troy (1980) (TV)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>1022880</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>The Night They Invented Troy Donahue
-        (2008)</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>0224296</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>The Trolley at East Troy (1986)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>2398664</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>&#34;The Troy Rawlings Show&#34; (2011) (TV series)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>1670355</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>The Troy Shawn Welcome Story (2010)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>2260927</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>&#34;Troy
-        Butcher vs. the World&#34; (2011) (TV series)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>2426976</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Troy
-        Kallmann's: The Apartment (2012)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>id</name>\n           <value>\n            <string>2266887</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Troy: Naked Boys Behind Bars, Sing!
-        (2011)</string>\n           </value>\n          </member>\n         </struct>\n
-        \       </value>\n        <value>\n         <struct>\n          <member>\n
-        \          <name>id</name>\n           <value>\n            <string>2148676</string>\n
-        \          </value>\n          </member>\n          <member>\n           <name>title</name>\n
-        \          <value>\n            <string>Troy Speaks the Truth (2012)</string>\n
-        \          </value>\n          </member>\n         </struct>\n        </value>\n
-        \       <value>\n         <struct>\n          <member>\n           <name>id</name>\n
-        \          <value>\n            <string>2152728</string>\n           </value>\n
-        \         </member>\n          <member>\n           <name>title</name>\n           <value>\n
-        \           <string>Women of Troy (1958) (TV)</string>\n           </value>\n
-        \         </member>\n         </struct>\n        </value>\n        <value>\n
-        \        <struct>\n          <member>\n           <name>id</name>\n           <value>\n
-        \           <string>1996306680</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>title</name>\n           <value>\n            <string>Troy
-        - Myth Or Reality (2004)</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n       </data>\n      </array>\n     </value>\n
-        \   </member>\n    <member>\n     <name>seconds</name>\n     <value>\n      <double>0.859</double>\n
-        \    </value>\n    </member>\n   </struct>\n  </value>\n </param>\n</params>\n</methodResponse>\n"
+      Cache-Control: 
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Set-Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7; path=/
+      Pragma: 
+      - no-cache
+      Expires: 
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Content-Length: 
+      - "17279"
+      Content-Type: 
+      - text/xml
+      Connection: 
+      - keep-alive
+      Accept-Ranges: 
+      - bytes
+      Date: 
+      - Sun, 04 Nov 2012 17:11:59 GMT
+    body: 
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <methodResponse>
+        <params>
+         <param>
+          <value>
+           <struct>
+            <member>
+             <name>status</name>
+             <value>
+              <string>200 OK</string>
+             </value>
+            </member>
+            <member>
+             <name>data</name>
+             <value>
+              <array>
+               <data>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0332452</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy (2004) Photos (</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1126490</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Call Me Troy (2007)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0431721</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Denied (2004) aka &#34;Troy Denied&#34; - Canada (English title) (working title)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2287360</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>A Kid Called Troy (1993)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0059262</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Hercules and the Princess of Troy (1965) (TV) aka &#34;Hercules vs. the Sea Monster&#34; -</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0768710</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Women of Troy (2006) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0484846</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Helen of Troy (2005) (TV) aka &#34;I oraia Eleni&#34; - Greece (transliterated ISO-LATIN-1 title)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0422707</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Making of 'Troy' (2004) (TV) aka &#34;N&#195;&#164;in tehtiin elokuva Troija&#34; - Finland</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0462049</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The True Story of Troy (2004) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0439021</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: From Ruins to Reality (2005) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0439022</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: In the Thick of Battle (2005) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0446541</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Beyond the Movie: Troy (2004) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0830492</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>&#34;The Troy Cory Evening Show&#34; (1974) (TV series) aka &#34;The Troy Cory Show&#34; - USA (alternative title)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0439020</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: An Effects Odyssey (2004) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0770821</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: The Passion of Helen (2004) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0409399</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: The True Story of Love, Power, Honor &#38; the Pursuit of Glory (2004) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1955057</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Warriors: Legends of Troy (2011) (VG)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2302499</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>A Life in the Balance: Examining the Troy Davis Case (2011) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1008665</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Battle for Troy (2004) (VG)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2148889</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Chillerama Presents: Anton Troy, the Man Behind the Beast (2011)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1575549</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Forgiving Troy: The Documentary (2009)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1918830</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>From Silence: Troy Donockley &#38; Dave Bainbridge (2006) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0473990</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Helene of Troy, N.Y. (1927)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1315952</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Helen of Troy (1917)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0014140</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>How Troy Was Collared (1923)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0893352</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Model Workout with Troy Warwell (2006) (V)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2034066</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>North Troy Roughcut (2010)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2336401</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Odysseus: The Jetman King of Ithaca's Journey to Troy (2012)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1570652</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>O kaimos tis Oraias Elenis - Polemos i erotas? (2005) aka &#34;The Yearning of Troy Helen - War or Love?&#34; - International (English title)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0044044</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Sk&#195;&#182;na Helena (1951) aka &#34;Helen of Troy&#34; - International (English title) aka &#34;Kaunis Helena&#34; - Finland</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1829039</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Epic of Troy Knight (2015)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1129385</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Molders of Troy (1980) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1022880</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Night They Invented Troy Donahue (2008)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>0224296</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Trolley at East Troy (1986)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2398664</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>&#34;The Troy Rawlings Show&#34; (2011) (TV series)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1670355</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>The Troy Shawn Welcome Story (2010)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2260927</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>&#34;Troy Butcher vs. the World&#34; (2011) (TV series)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2426976</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy Kallmann's: The Apartment (2012)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2266887</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy: Naked Boys Behind Bars, Sing! (2011)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2148676</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy Speaks the Truth (2012)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>2152728</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Women of Troy (1958) (TV)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+                <value>
+                 <struct>
+                  <member>
+                   <name>id</name>
+                   <value>
+                    <string>1996306680</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>title</name>
+                   <value>
+                    <string>Troy - Myth Or Reality (2004)</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+               </data>
+              </array>
+             </value>
+            </member>
+            <member>
+             <name>seconds</name>
+             <value>
+              <double>0.829</double>
+             </value>
+            </member>
+           </struct>
+          </value>
+         </param>
+        </params>
+        </methodResponse>
+
     http_version: 
-  recorded_at: Sat, 03 Nov 2012 13:59:02 GMT
+  recorded_at: Sun, 04 Nov 2012 17:11:59 GMT
 recorded_with: VCR 2.3.0
