@@ -1,166 +1,492 @@
----
-http_interactions:
-- request:
+--- 
+http_interactions: 
+- request: 
     method: post
     uri: http://api.opensubtitles.org/xml-rpc
-    body:
-      encoding: US-ASCII
-      string: ! '<?xml version="1.0" ?><methodCall><methodName>ServerInfo</methodName><params/></methodCall>
+    body: 
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>ServerInfo</methodName><params/></methodCall>
 
-'
-    headers:
-      User-Agent:
-      - XMLRPC::Client (Ruby 1.9.3)
-      Content-Type:
+    headers: 
+      Accept: 
+      - "*/*"
+      Content-Length: 
+      - "92"
+      User-Agent: 
+      - XMLRPC::Client (Ruby 1.8.7)
+      Content-Type: 
       - text/xml; charset=utf-8
-      Content-Length:
-      - '92'
-      Connection:
+      Connection: 
       - keep-alive
-      Accept:
-      - ! '*/*'
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      Content-Type:
-      - text/xml
-      Content-Length:
-      - '9662'
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Sat, 03 Nov 2012 13:58:53 GMT
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
-      X-Cache:
+    headers: 
+      X-Cache: 
       - MISS
-      X-Cache-Backend:
+      Age: 
+      - "0"
+      X-Cache-Backend: 
       - www
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
-        <param>\n  <value>\n   <struct>\n    <member>\n     <name>xmlrpc_version</name>\n
-        \    <value>\n      <string>0.1</string>\n     </value>\n    </member>\n    <member>\n
-        \    <name>xmlrpc_url</name>\n     <value>\n      <string>http://api.opensubtitles.org/xml-rpc</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>application</name>\n
-        \    <value>\n      <string>OpenSuber v0.2</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>contact</name>\n     <value>\n      <string>admin@opensubtitles.org</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>website_url</name>\n
-        \    <value>\n      <string>http://www.opensubtitles.org</string>\n     </value>\n
-        \   </member>\n    <member>\n     <name>users_online_total</name>\n     <value>\n
-        \     <int>10015</int>\n     </value>\n    </member>\n    <member>\n     <name>users_online_program</name>\n
-        \    <value>\n      <int>7403</int>\n     </value>\n    </member>\n    <member>\n
-        \    <name>users_loggedin</name>\n     <value>\n      <int>84</int>\n     </value>\n
-        \   </member>\n    <member>\n     <name>users_max_alltime</name>\n     <value>\n
-        \     <string>27449</string>\n     </value>\n    </member>\n    <member>\n
-        \    <name>users_registered</name>\n     <value>\n      <string>1025038</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>subs_downloads</name>\n
-        \    <value>\n      <string>765234933</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>subs_subtitle_files</name>\n     <value>\n      <string>1863523</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>movies_total</name>\n
-        \    <value>\n      <string>136399</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>movies_aka</name>\n     <value>\n      <string>277538</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>total_subtitles_languages</name>\n
-        \    <value>\n      <string>61</string>\n     </value>\n    </member>\n    <member>\n
-        \    <name>last_update_strings</name>\n     <value>\n      <struct>\n       <member>\n
-        \       <name>ar</name>\n        <value>\n         <string>2007-02-03 21:36:14</string>\n
-        \       </value>\n       </member>\n       <member>\n        <name>bg</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:14</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>ca</name>\n        <value>\n
-        \        <string>2009-07-06 06:20:41</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>cs</name>\n        <value>\n         <string>2007-02-03
-        21:36:15</string>\n        </value>\n       </member>\n       <member>\n        <name>da</name>\n
-        \       <value>\n         <string>2007-02-16 14:07:42</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>de</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:15</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>el</name>\n        <value>\n         <string>2007-02-03
-        21:36:17</string>\n        </value>\n       </member>\n       <member>\n        <name>en</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:14</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>es</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:21</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>et</name>\n        <value>\n         <string>2007-05-07
-        20:43:40</string>\n        </value>\n       </member>\n       <member>\n        <name>eu</name>\n
-        \       <value>\n         <string>2011-08-28 08:37:00</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>fa</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:16</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>fi</name>\n        <value>\n         <string>2007-02-03
-        21:36:16</string>\n        </value>\n       </member>\n       <member>\n        <name>fr</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:16</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>gl</name>\n        <value>\n
-        \        <string>2007-10-11 16:23:40</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>he</name>\n        <value>\n         <string>2007-02-03
-        21:36:17</string>\n        </value>\n       </member>\n       <member>\n        <name>hi</name>\n
-        \       <value>\n         <string>2011-11-07 09:54:58</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>hr</name>\n        <value>\n
-        \        <string>2007-02-04 11:05:51</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>hu</name>\n        <value>\n         <string>2007-02-03
-        21:36:17</string>\n        </value>\n       </member>\n       <member>\n        <name>id</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:18</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>is</name>\n        <value>\n
-        \        <string>2011-01-04 20:33:08</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>it</name>\n        <value>\n         <string>2007-02-03
-        21:36:18</string>\n        </value>\n       </member>\n       <member>\n        <name>ja</name>\n
-        \       <value>\n         <string>2007-02-04 11:05:11</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>ka</name>\n        <value>\n
-        \        <string>2007-06-09 17:08:29</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>km</name>\n        <value>\n         <string>2011-12-31
-        03:57:52</string>\n        </value>\n       </member>\n       <member>\n        <name>ko</name>\n
-        \       <value>\n         <string>2007-02-04 11:05:16</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>mk</name>\n        <value>\n
-        \        <string>2007-12-06 10:45:07</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>ms</name>\n        <value>\n         <string>2009-04-18
-        09:08:07</string>\n        </value>\n       </member>\n       <member>\n        <name>nl</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:15</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>no</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:18</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>oc</name>\n        <value>\n         <string>2008-12-16
-        12:56:29</string>\n        </value>\n       </member>\n       <member>\n        <name>pb</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:19</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>pl</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:19</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>pt</name>\n        <value>\n         <string>2007-02-03
-        21:36:19</string>\n        </value>\n       </member>\n       <member>\n        <name>ro</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:20</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>ru</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:20</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>si</name>\n        <value>\n         <string>2009-08-09
-        10:06:20</string>\n        </value>\n       </member>\n       <member>\n        <name>sk</name>\n
-        \       <value>\n         <string>2007-02-03 21:36:20</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>sl</name>\n        <value>\n
-        \        <string>2008-08-26 08:39:30</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>sq</name>\n        <value>\n         <string>2008-03-06
-        19:11:57</string>\n        </value>\n       </member>\n       <member>\n        <name>sr</name>\n
-        \       <value>\n         <string>2007-09-05 10:16:25</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>sv</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:21</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>th</name>\n        <value>\n         <string>2007-06-28
-        10:37:46</string>\n        </value>\n       </member>\n       <member>\n        <name>tl</name>\n
-        \       <value>\n         <string>2009-08-24 16:32:10</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>tr</name>\n        <value>\n
-        \        <string>2007-02-03 21:36:22</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>uk</name>\n        <value>\n         <string>2010-03-22
-        10:14:26</string>\n        </value>\n       </member>\n       <member>\n        <name>vi</name>\n
-        \       <value>\n         <string>2007-02-04 11:05:03</string>\n        </value>\n
-        \      </member>\n       <member>\n        <name>zh</name>\n        <value>\n
-        \        <string>2007-02-04 11:05:27</string>\n        </value>\n       </member>\n
-        \     </struct>\n     </value>\n    </member>\n    <member>\n     <name>download_limits</name>\n
-        \    <value>\n      <struct>\n       <member>\n        <name>global_24h_download_limit</name>\n
-        \       <value>\n         <int>200</int>\n        </value>\n       </member>\n
-        \      <member>\n        <name>client_ip</name>\n        <value>\n         <string>80.30.33.21</string>\n
-        \       </value>\n       </member>\n       <member>\n        <name>limit_check_by</name>\n
-        \       <value>\n         <string>user_ip</string>\n        </value>\n       </member>\n
-        \      <member>\n        <name>client_24h_download_count</name>\n        <value>\n
-        \        <int>0</int>\n        </value>\n       </member>\n       <member>\n
-        \       <name>client_download_quota</name>\n        <value>\n         <int>200</int>\n
-        \       </value>\n       </member>\n       <member>\n        <name>client_24h_download_limit</name>\n
-        \       <value>\n         <int>200</int>\n        </value>\n       </member>\n
-        \     </struct>\n     </value>\n    </member>\n    <member>\n     <name>seconds</name>\n
-        \    <value>\n      <double>0.006</double>\n     </value>\n    </member>\n
-        \  </struct>\n  </value>\n </param>\n</params>\n</methodResponse>\n"
+      Content-Length: 
+      - "9664"
+      Content-Type: 
+      - text/xml
+      Connection: 
+      - keep-alive
+      Accept-Ranges: 
+      - bytes
+      Date: 
+      - Sun, 04 Nov 2012 17:11:32 GMT
+    body: 
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <methodResponse>
+        <params>
+         <param>
+          <value>
+           <struct>
+            <member>
+             <name>xmlrpc_version</name>
+             <value>
+              <string>0.1</string>
+             </value>
+            </member>
+            <member>
+             <name>xmlrpc_url</name>
+             <value>
+              <string>http://api.opensubtitles.org/xml-rpc</string>
+             </value>
+            </member>
+            <member>
+             <name>application</name>
+             <value>
+              <string>OpenSuber v0.2</string>
+             </value>
+            </member>
+            <member>
+             <name>contact</name>
+             <value>
+              <string>admin@opensubtitles.org</string>
+             </value>
+            </member>
+            <member>
+             <name>website_url</name>
+             <value>
+              <string>http://www.opensubtitles.org</string>
+             </value>
+            </member>
+            <member>
+             <name>users_online_total</name>
+             <value>
+              <int>13570</int>
+             </value>
+            </member>
+            <member>
+             <name>users_online_program</name>
+             <value>
+              <int>10099</int>
+             </value>
+            </member>
+            <member>
+             <name>users_loggedin</name>
+             <value>
+              <int>127</int>
+             </value>
+            </member>
+            <member>
+             <name>users_max_alltime</name>
+             <value>
+              <string>27449</string>
+             </value>
+            </member>
+            <member>
+             <name>users_registered</name>
+             <value>
+              <string>1025281</string>
+             </value>
+            </member>
+            <member>
+             <name>subs_downloads</name>
+             <value>
+              <string>766307871</string>
+             </value>
+            </member>
+            <member>
+             <name>subs_subtitle_files</name>
+             <value>
+              <string>1864635</string>
+             </value>
+            </member>
+            <member>
+             <name>movies_total</name>
+             <value>
+              <string>136467</string>
+             </value>
+            </member>
+            <member>
+             <name>movies_aka</name>
+             <value>
+              <string>277764</string>
+             </value>
+            </member>
+            <member>
+             <name>total_subtitles_languages</name>
+             <value>
+              <string>61</string>
+             </value>
+            </member>
+            <member>
+             <name>last_update_strings</name>
+             <value>
+              <struct>
+               <member>
+                <name>ar</name>
+                <value>
+                 <string>2007-02-03 21:36:14</string>
+                </value>
+               </member>
+               <member>
+                <name>bg</name>
+                <value>
+                 <string>2007-02-03 21:36:14</string>
+                </value>
+               </member>
+               <member>
+                <name>ca</name>
+                <value>
+                 <string>2009-07-06 06:20:41</string>
+                </value>
+               </member>
+               <member>
+                <name>cs</name>
+                <value>
+                 <string>2007-02-03 21:36:15</string>
+                </value>
+               </member>
+               <member>
+                <name>da</name>
+                <value>
+                 <string>2007-02-16 14:07:42</string>
+                </value>
+               </member>
+               <member>
+                <name>de</name>
+                <value>
+                 <string>2007-02-03 21:36:15</string>
+                </value>
+               </member>
+               <member>
+                <name>el</name>
+                <value>
+                 <string>2007-02-03 21:36:17</string>
+                </value>
+               </member>
+               <member>
+                <name>en</name>
+                <value>
+                 <string>2007-02-03 21:36:14</string>
+                </value>
+               </member>
+               <member>
+                <name>es</name>
+                <value>
+                 <string>2007-02-03 21:36:21</string>
+                </value>
+               </member>
+               <member>
+                <name>et</name>
+                <value>
+                 <string>2007-05-07 20:43:40</string>
+                </value>
+               </member>
+               <member>
+                <name>eu</name>
+                <value>
+                 <string>2011-08-28 08:37:00</string>
+                </value>
+               </member>
+               <member>
+                <name>fa</name>
+                <value>
+                 <string>2007-02-03 21:36:16</string>
+                </value>
+               </member>
+               <member>
+                <name>fi</name>
+                <value>
+                 <string>2007-02-03 21:36:16</string>
+                </value>
+               </member>
+               <member>
+                <name>fr</name>
+                <value>
+                 <string>2007-02-03 21:36:16</string>
+                </value>
+               </member>
+               <member>
+                <name>gl</name>
+                <value>
+                 <string>2007-10-11 16:23:40</string>
+                </value>
+               </member>
+               <member>
+                <name>he</name>
+                <value>
+                 <string>2007-02-03 21:36:17</string>
+                </value>
+               </member>
+               <member>
+                <name>hi</name>
+                <value>
+                 <string>2011-11-07 09:54:58</string>
+                </value>
+               </member>
+               <member>
+                <name>hr</name>
+                <value>
+                 <string>2007-02-04 11:05:51</string>
+                </value>
+               </member>
+               <member>
+                <name>hu</name>
+                <value>
+                 <string>2007-02-03 21:36:17</string>
+                </value>
+               </member>
+               <member>
+                <name>id</name>
+                <value>
+                 <string>2007-02-03 21:36:18</string>
+                </value>
+               </member>
+               <member>
+                <name>is</name>
+                <value>
+                 <string>2011-01-04 20:33:08</string>
+                </value>
+               </member>
+               <member>
+                <name>it</name>
+                <value>
+                 <string>2007-02-03 21:36:18</string>
+                </value>
+               </member>
+               <member>
+                <name>ja</name>
+                <value>
+                 <string>2007-02-04 11:05:11</string>
+                </value>
+               </member>
+               <member>
+                <name>ka</name>
+                <value>
+                 <string>2007-06-09 17:08:29</string>
+                </value>
+               </member>
+               <member>
+                <name>km</name>
+                <value>
+                 <string>2011-12-31 03:57:52</string>
+                </value>
+               </member>
+               <member>
+                <name>ko</name>
+                <value>
+                 <string>2007-02-04 11:05:16</string>
+                </value>
+               </member>
+               <member>
+                <name>mk</name>
+                <value>
+                 <string>2007-12-06 10:45:07</string>
+                </value>
+               </member>
+               <member>
+                <name>ms</name>
+                <value>
+                 <string>2009-04-18 09:08:07</string>
+                </value>
+               </member>
+               <member>
+                <name>nl</name>
+                <value>
+                 <string>2007-02-03 21:36:15</string>
+                </value>
+               </member>
+               <member>
+                <name>no</name>
+                <value>
+                 <string>2007-02-03 21:36:18</string>
+                </value>
+               </member>
+               <member>
+                <name>oc</name>
+                <value>
+                 <string>2008-12-16 12:56:29</string>
+                </value>
+               </member>
+               <member>
+                <name>pb</name>
+                <value>
+                 <string>2007-02-03 21:36:19</string>
+                </value>
+               </member>
+               <member>
+                <name>pl</name>
+                <value>
+                 <string>2007-02-03 21:36:19</string>
+                </value>
+               </member>
+               <member>
+                <name>pt</name>
+                <value>
+                 <string>2007-02-03 21:36:19</string>
+                </value>
+               </member>
+               <member>
+                <name>ro</name>
+                <value>
+                 <string>2007-02-03 21:36:20</string>
+                </value>
+               </member>
+               <member>
+                <name>ru</name>
+                <value>
+                 <string>2007-02-03 21:36:20</string>
+                </value>
+               </member>
+               <member>
+                <name>si</name>
+                <value>
+                 <string>2009-08-09 10:06:20</string>
+                </value>
+               </member>
+               <member>
+                <name>sk</name>
+                <value>
+                 <string>2007-02-03 21:36:20</string>
+                </value>
+               </member>
+               <member>
+                <name>sl</name>
+                <value>
+                 <string>2008-08-26 08:39:30</string>
+                </value>
+               </member>
+               <member>
+                <name>sq</name>
+                <value>
+                 <string>2008-03-06 19:11:57</string>
+                </value>
+               </member>
+               <member>
+                <name>sr</name>
+                <value>
+                 <string>2007-09-05 10:16:25</string>
+                </value>
+               </member>
+               <member>
+                <name>sv</name>
+                <value>
+                 <string>2007-02-03 21:36:21</string>
+                </value>
+               </member>
+               <member>
+                <name>th</name>
+                <value>
+                 <string>2007-06-28 10:37:46</string>
+                </value>
+               </member>
+               <member>
+                <name>tl</name>
+                <value>
+                 <string>2009-08-24 16:32:10</string>
+                </value>
+               </member>
+               <member>
+                <name>tr</name>
+                <value>
+                 <string>2007-02-03 21:36:22</string>
+                </value>
+               </member>
+               <member>
+                <name>uk</name>
+                <value>
+                 <string>2010-03-22 10:14:26</string>
+                </value>
+               </member>
+               <member>
+                <name>vi</name>
+                <value>
+                 <string>2007-02-04 11:05:03</string>
+                </value>
+               </member>
+               <member>
+                <name>zh</name>
+                <value>
+                 <string>2007-02-04 11:05:27</string>
+                </value>
+               </member>
+              </struct>
+             </value>
+            </member>
+            <member>
+             <name>download_limits</name>
+             <value>
+              <struct>
+               <member>
+                <name>global_24h_download_limit</name>
+                <value>
+                 <int>200</int>
+                </value>
+               </member>
+               <member>
+                <name>client_ip</name>
+                <value>
+                 <string>80.30.33.21</string>
+                </value>
+               </member>
+               <member>
+                <name>limit_check_by</name>
+                <value>
+                 <string>user_ip</string>
+                </value>
+               </member>
+               <member>
+                <name>client_24h_download_count</name>
+                <value>
+                 <int>1</int>
+                </value>
+               </member>
+               <member>
+                <name>client_download_quota</name>
+                <value>
+                 <int>199</int>
+                </value>
+               </member>
+               <member>
+                <name>client_24h_download_limit</name>
+                <value>
+                 <int>200</int>
+                </value>
+               </member>
+              </struct>
+             </value>
+            </member>
+            <member>
+             <name>seconds</name>
+             <value>
+              <double>0.149</double>
+             </value>
+            </member>
+           </struct>
+          </value>
+         </param>
+        </params>
+        </methodResponse>
+
     http_version: 
-  recorded_at: Sat, 03 Nov 2012 13:58:56 GMT
+  recorded_at: Sun, 04 Nov 2012 17:11:32 GMT
 recorded_with: VCR 2.3.0
