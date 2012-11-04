@@ -1,141 +1,225 @@
----
-http_interactions:
-- request:
+--- 
+http_interactions: 
+- request: 
     method: post
     uri: http://api.opensubtitles.org/xml-rpc
-    body:
-      encoding: US-ASCII
-      string: ! '<?xml version="1.0" ?><methodCall><methodName>LogIn</methodName><params><param><value><string></string></value></param><param><value><string></string></value></param><param><value><string>eng</string></value></param><param><value><string>OS
-        Test User Agent</string></value></param></params></methodCall>
+    body: 
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>LogIn</methodName><params><param><value><string></string></value></param><param><value><string></string></value></param><param><value><string>eng</string></value></param><param><value><string>OS Test User Agent</string></value></param></params></methodCall>
 
-'
-    headers:
-      User-Agent:
-      - XMLRPC::Client (Ruby 1.9.3)
-      Content-Type:
+    headers: 
+      Accept: 
+      - "*/*"
+      Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7
+      Content-Length: 
+      - "304"
+      User-Agent: 
+      - XMLRPC::Client (Ruby 1.8.7)
+      Content-Type: 
       - text/xml; charset=utf-8
-      Content-Length:
-      - '304'
-      Connection:
+      Connection: 
       - keep-alive
-      Cookie:
-      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
-      Accept:
-      - ! '*/*'
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
-      Cache-Control:
-      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-      Pragma:
-      - no-cache
-      Content-Type:
-      - text/xml
-      Content-Length:
-      - '504'
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Sat, 03 Nov 2012 13:58:54 GMT
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
-      X-Cache:
+    headers: 
+      X-Cache: 
       - MISS
-      X-Cache-Backend:
+      Age: 
+      - "0"
+      X-Cache-Backend: 
       - www
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
-        <param>\n  <value>\n   <struct>\n    <member>\n     <name>token</name>\n     <value>\n
-        \     <string>0ij4vtkcg3lca6023sofhifom7</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>status</name>\n     <value>\n      <string>200 OK</string>\n
-        \    </value>\n    </member>\n    <member>\n     <name>seconds</name>\n     <value>\n
-        \     <double>0.009</double>\n     </value>\n    </member>\n   </struct>\n
-        \ </value>\n </param>\n</params>\n</methodResponse>\n"
+      Cache-Control: 
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma: 
+      - no-cache
+      Expires: 
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Content-Length: 
+      - "504"
+      Content-Type: 
+      - text/xml
+      Connection: 
+      - keep-alive
+      Accept-Ranges: 
+      - bytes
+      Date: 
+      - Sun, 04 Nov 2012 17:11:36 GMT
+    body: 
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <methodResponse>
+        <params>
+         <param>
+          <value>
+           <struct>
+            <member>
+             <name>token</name>
+             <value>
+              <string>qtqkphpa0us78eikqtdtg4jic7</string>
+             </value>
+            </member>
+            <member>
+             <name>status</name>
+             <value>
+              <string>200 OK</string>
+             </value>
+            </member>
+            <member>
+             <name>seconds</name>
+             <value>
+              <double>0.009</double>
+             </value>
+            </member>
+           </struct>
+          </value>
+         </param>
+        </params>
+        </methodResponse>
+
     http_version: 
-  recorded_at: Sat, 03 Nov 2012 13:58:58 GMT
-- request:
+  recorded_at: Sun, 04 Nov 2012 17:11:36 GMT
+- request: 
     method: post
     uri: http://api.opensubtitles.org/xml-rpc
-    body:
-      encoding: US-ASCII
-      string: ! '<?xml version="1.0" ?><methodCall><methodName>CheckMovieHash</methodName><params><param><value><string>0ij4vtkcg3lca6023sofhifom7</string></value></param><param><value><array><data><value><string>37d0c7d0cfcbe280</string></value></data></array></value></param></params></methodCall>
+    body: 
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>CheckMovieHash</methodName><params><param><value><string>qtqkphpa0us78eikqtdtg4jic7</string></value></param><param><value><array><data><value><string>37d0c7d0cfcbe280</string></value></data></array></value></param></params></methodCall>
 
-'
-    headers:
-      User-Agent:
-      - XMLRPC::Client (Ruby 1.9.3)
-      Content-Type:
+    headers: 
+      Accept: 
+      - "*/*"
+      Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7
+      Content-Length: 
+      - "283"
+      User-Agent: 
+      - XMLRPC::Client (Ruby 1.8.7)
+      Content-Type: 
       - text/xml; charset=utf-8
-      Content-Length:
-      - '283'
-      Connection:
+      Connection: 
       - keep-alive
-      Cookie:
-      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7
-      Accept:
-      - ! '*/*'
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      Set-Cookie:
-      - PHPSESSID=0ij4vtkcg3lca6023sofhifom7; path=/
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
-      Cache-Control:
-      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-      Pragma:
-      - no-cache
-      Content-Type:
-      - text/xml
-      Content-Length:
-      - '1800'
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Sat, 03 Nov 2012 13:58:55 GMT
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
-      X-Cache:
+    headers: 
+      X-Cache: 
       - MISS
-      X-Cache-Backend:
+      Age: 
+      - "0"
+      X-Cache-Backend: 
       - www
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<methodResponse>\n<params>\n
-        <param>\n  <value>\n   <struct>\n    <member>\n     <name>status</name>\n
-        \    <value>\n      <string>200 OK</string>\n     </value>\n    </member>\n
-        \   <member>\n     <name>data</name>\n     <value>\n      <struct>\n       <member>\n
-        \       <name>37d0c7d0cfcbe280</name>\n        <value>\n         <struct>\n
-        \         <member>\n           <name>MovieHash</name>\n           <value>\n
-        \           <string>37d0c7d0cfcbe280</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>MovieImdbID</name>\n           <value>\n
-        \           <string>0117500</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>MovieName</name>\n           <value>\n
-        \           <string>The Rock</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>MovieYear</name>\n           <value>\n
-        \           <string>1996</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>MovieKind</name>\n           <value>\n
-        \           <string>movie</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>SeriesSeason</name>\n           <value>\n
-        \           <string>0</string>\n           </value>\n          </member>\n
-        \         <member>\n           <name>SeriesEpisode</name>\n           <value>\n
-        \           <string>0</string>\n           </value>\n          </member>\n
-        \        </struct>\n        </value>\n       </member>\n      </struct>\n
-        \    </value>\n    </member>\n    <member>\n     <name>not_processed</name>\n
-        \    <value>\n      <array>\n       <data/>\n      </array>\n     </value>\n
-        \   </member>\n    <member>\n     <name>seconds</name>\n     <value>\n      <double>0.031</double>\n
-        \    </value>\n    </member>\n   </struct>\n  </value>\n </param>\n</params>\n</methodResponse>\n"
+      Cache-Control: 
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Set-Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7; path=/
+      Pragma: 
+      - no-cache
+      Expires: 
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Content-Length: 
+      - "1800"
+      Content-Type: 
+      - text/xml
+      Connection: 
+      - keep-alive
+      Accept-Ranges: 
+      - bytes
+      Date: 
+      - Sun, 04 Nov 2012 17:11:36 GMT
+    body: 
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <methodResponse>
+        <params>
+         <param>
+          <value>
+           <struct>
+            <member>
+             <name>status</name>
+             <value>
+              <string>200 OK</string>
+             </value>
+            </member>
+            <member>
+             <name>data</name>
+             <value>
+              <struct>
+               <member>
+                <name>37d0c7d0cfcbe280</name>
+                <value>
+                 <struct>
+                  <member>
+                   <name>MovieHash</name>
+                   <value>
+                    <string>37d0c7d0cfcbe280</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>MovieImdbID</name>
+                   <value>
+                    <string>0117500</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>MovieName</name>
+                   <value>
+                    <string>The Rock</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>MovieYear</name>
+                   <value>
+                    <string>1996</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>MovieKind</name>
+                   <value>
+                    <string>movie</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>SeriesSeason</name>
+                   <value>
+                    <string>0</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>SeriesEpisode</name>
+                   <value>
+                    <string>0</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+               </member>
+              </struct>
+             </value>
+            </member>
+            <member>
+             <name>not_processed</name>
+             <value>
+              <array>
+               <data/>
+              </array>
+             </value>
+            </member>
+            <member>
+             <name>seconds</name>
+             <value>
+              <double>0.016</double>
+             </value>
+            </member>
+           </struct>
+          </value>
+         </param>
+        </params>
+        </methodResponse>
+
     http_version: 
-  recorded_at: Sat, 03 Nov 2012 13:58:58 GMT
+  recorded_at: Sun, 04 Nov 2012 17:11:36 GMT
 recorded_with: VCR 2.3.0
