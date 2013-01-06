@@ -1,197 +1,159 @@
 #!/usr/bin/env ruby
-# TODO: getsub is becomming a bit to complexe, rewrite it OO or move it in another gem
 require 'optparse'
 require 'uri'
 require 'rubygems'
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'osdb'))
 
-def env_lang
-  OSDb::Language.from_locale(ENV['LANG'])
-end
 
-@options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil }
-@parser ||= OptionParser.new do |opts|
-  opts.banner = "Automatically download subs for your video files using opensubtitle.org"
-  opts.separator ""
-  opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
-  opts.separator ""
-  opts.separator "Main options:"
+class GetSub
 
-  opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
-    if language.to_s.length != 3
-      STDERR.puts "Language should specified as ISO 639-2 (ie, 3 letters, like 'eng' or 'fre')"
-      exit 1
+  def initialize
+    @options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil, :methods => 'h'}
+    @parser ||= OptionParser.new do |opts|
+      opts.banner = "Automatically download subs for your video files using opensubtitle.org"
+      opts.separator ""
+      opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
+      opts.separator ""
+      opts.separator "Main options:"
+
+      opts.on("-a", "--auto", "Do not ask user to resolve hash conflicts.") { @options[:auto] = true }
+
+      opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+        if language.to_s.length != 3
+          STDERR.puts "Invalid argument: Language should specified as ISO 639-2 (ie, 3 letters, like 'eng' or 'fre')"
+          exit 1
+        end
+        @options[:language] = language.to_s
+      end
+
+      opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
+
+      opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
+
+      methods_help = "Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on OSDb, p: by filename on OSDb. e.g -s hi . Default: h"
+      opts.on("-s", "--search-by METHODS", methods_help) do |methods|
+        unless methods =~ /^[hinp]$/
+          STDERR.puts "Invalid argument: Available search methods are: h, i, n and p."
+          exit 1
+        end
+        @options[:methods] = methods
+      end
+
     end
-    @options[:language] = language.to_s
   end
 
-  opts.on("-d", "--directory DIRECTORY", "Specify a directory to search recursively for movies") do |dir|
-    @options[:dir] = dir
+  def env_lang
+    OSDb::Language.from_locale(ENV['LANG'])
   end
-  
-  opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
 
-  opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
+  def run!(files)
+    @parser.parse!
 
-end
-@parser.parse!
+    movie_files = files.map{ |path| OSDb::MovieFile.new(path) }
 
-def curl_available?
-  %x{ curl --version 2> /dev/null > /dev/null }
-  $?.success?
-end
+    movie_files.each do |movie_file|
+      begin
+        puts "* Search subtitles for #{movie_file.name}"
+        if movie_file.has_sub? && !@options[:force]
+          puts "* Sub already there. To override it use --force"
+          puts
+          next
+        end
 
-def wget_available?
-  %x{ wget --version 2> /dev/null > /dev/null }
-  $?.success?
-end
-
-def download!(url, local_path)
-  puts "* download #{url} to #{local_path}"
-  if curl_available?
-    %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
-  elsif wget_available?
-    %x{ wget -O - -q '#{url}' | gunzip > "#{local_path}"}
-  else
-    puts "Can't found any curl or wget please install one of them or manualy download your sub"
-    puts url
-  end
-end
-
-def group_by_movie_name(subs)
-  subs.inject({}) do |hash, sub| 
-    hash[sub.movie_name] ||= []
-    hash[sub.movie_name] << sub
-    hash
-  end
-end
-
-def ask_user_to_identify_movie(movies)
-  movies.keys.each_with_index do |name, index|
-    puts " #{index} - #{name}"
-  end
-  print 'id: '
-  str = STDIN.gets # TODO: rule #1, never trust user input
-  puts
-  movies[movies.keys[str.to_i]] || []
-end
-
-def normalize_name(name)
-  name.downcase.gsub(/[\s\.\-\_]+/, ' ')
-end
-
-def select_movie(movies)
-  return movies.values.first || [] if movies.length <= 1
-
-  puts "D'oh! You stumbled upon a hash conflict, please resolve it:"
-  puts
-  ask_user_to_identify_movie(movies)
-end
-
-def select_format(subs)
-  return subs unless @options[:formats]
-  subs.select{ |s| @options[:formats].include?(s.format) }
-end
-
-def select_sub(subs)
-  subs = select_format(subs)
-  movies = group_by_movie_name(subs)
-  subs = select_movie(movies)
-  subs.max_by(&:score)
-end
-
-def download_sub!(sub, movie)
-  sub_path = movie.sub_path(sub.format)
-  download!(sub.url, sub_path)
-end
-
-def arg_files
-  return ARGV unless @options[:dir]
-  Dir.glob(File.join(@options[:dir], '**', "*.{#{OSDb::Movie::EXTENSIONS.join(',')}}"))
-end
-
-movies = arg_files.map{ |path| OSDb::Movie.new(path) }
-movies.reject!(&:has_sub?) unless @options[:force]
-
-server = OSDb::Server.new(
-  :host => 'api.opensubtitles.org', 
-  :path => '/xml-rpc', 
-  :timeout => 90, 
-  :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
-) 
-STDOUT.sync = true
-
-if movies.empty?
-  puts "No file provided"
-  puts @parser.help
-  exit 1
-end
-
-def search_by_hash(server, movie)
-  server.search_subtitles(:moviehash => movie.hash, :moviebytesize => movie.size.to_s, :sublanguageid => @options[:language])
-end
-
-def search_by_path(server, movie)
-  server.search_subtitles(:sublanguageid => @options[:language], :tag => movie.path)
-end
-
-def search_by_name(server, movie)
-  subs = server.search_subtitles(:sublanguageid => @options[:language], :query => movie.name)
-  normalized_movie_name = normalize_name(movie.name)
-  subs.select! do |sub|
-    normalize_name(sub.filename).index(normalized_movie_name) # MAYBE: Levenshtein ?
-  end
-  subs if subs.any?
-end
-
-def search_by_imdb(server, movie)
-  imdb_results = server.search_imdb(:query => movie.name)
-  if imdb_results.any?
-    if imdb_results.length == 1
-      imdb_result = imdb_results.first
-      puts "* found on IMDB with ID: #{imdb_result.imdbid}"
-    else
-      movies = Hash[imdb_results.map{ |r| [r.title, r] }]
-      imdb_result = ask_user_to_identify_movie(movies)
+        if sub = subtitle_finder.find_sub_for(movie_file, @options[:language])
+          download_sub!(sub, movie_file)
+        else
+          puts "* No sub found"
+        end
+        puts
+      rescue Exception => e
+        report_exception(e)
+      end
     end
-    server.search_subtitles(:sublanguageid => @options[:language], :imdbid => imdb_result.imdbid)
   end
-end
 
-movies.each do |movie|
-  begin
-    puts "* search subs by hash for: #{movie.path}"
-    sub = select_sub search_by_hash(server, movie)
-
-    unless sub
-      puts "* could not find sub by hash, trying IMDB"
-      sub = select_sub search_by_imdb(server, movie)
-    end
-
-    unless sub
-      puts "* no matches"
-      puts "* search subs by path"
-      sub = select_sub search_by_path(server, movie)
-    end
-
-    unless sub
-      puts "* still no matches"
-      puts "* search subs by filename"
-      sub = select_sub search_by_name(server, movie)
-    end
-
-    if sub
-      download_sub!(sub, movie)
-    else
-      puts "Nothing worked, you are very unlucky :'("
-    end
-    puts
-  rescue Exception => e
+  def report_exception(exception)
     puts "Something crashed."
     puts "Feel free to report the error here: https://github.com/byroot/ruby-osdb/issues"
     puts "With the following debug informations:"
     puts
-    puts "#{e.class.name}: #{e.message}:"
-    puts e.backtrace
+    puts "#{exception.class.name}: #{exception.message}:"
+    puts exception.backtrace
+    puts
   end
+
+  def subtitle_finder
+    @subtitle_finder ||= OSDb::SubtitleFinder.new(search_engines, finders, selectors)
+  end
+
+  SEARCH_ENGINES = {
+    'h' => OSDb::Search::MovieHash,
+    'i' => OSDb::Search::IMDB,
+    'n' => OSDb::Search::Name,
+    'p' => OSDb::Search::Path
+  }
+
+  def search_engines
+    @options[:methods].to_s.each_char.map do |char|
+      SEARCH_ENGINES[char.to_s].new(server)
+    end
+  end
+
+  def finders
+    [OSDb::Finder::Score.new]
+  end
+
+  def selectors
+    movie_finder = if @options[:auto]
+      OSDb::Finder::First.new # TODO: try to match subtitle movie name with filename
+    else
+      OSDb::Finder::Interactive.new
+    end
+    
+    selectors = [
+      OSDb::Selector::Movie.new(movie_finder)
+    ]
+    selectors << OSDb::Selector::Format.new(@options[:formats]) if @options[:formats]
+    selectors
+  end
+
+  def server
+    @server ||= OSDb::Server.new(
+      :host => 'api.opensubtitles.org',
+      :path => '/xml-rpc', 
+      :timeout => 90, 
+      :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
+    ) 
+  end
+
+  def download_sub!(sub, movie_file)
+    sub_path = movie_file.sub_path(sub.format)
+    download!(sub.url, sub_path)
+  end
+
+  def curl_available?
+    %x{ curl --version 2> /dev/null > /dev/null }
+    $?.success?
+  end
+
+  def wget_available?
+    %x{ wget --version 2> /dev/null > /dev/null }
+    $?.success?
+  end
+
+  def download!(url, local_path)
+    # TODO: use Net::HTTP and ZLib to avoid shell dependency
+    puts "* download #{url} to #{local_path}"
+    if curl_available?
+      %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
+    elsif wget_available?
+      %x{ wget -O - -q '#{url}' | gunzip > "#{local_path}"}
+    else
+      puts "Can't found any curl or wget please install one of them or manualy download your sub"
+      puts url
+    end
+  end
+
 end
+
+GetSub.new.run!(ARGV)
