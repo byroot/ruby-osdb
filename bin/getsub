@@ -32,7 +32,7 @@ class GetSub
 
       methods_help = "Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on OSDb, p: by filename on OSDb. e.g -s hi . Default: h"
       opts.on("-s", "--search-by METHODS", methods_help) do |methods|
-        unless methods =~ /^[hinp]$/
+        unless methods =~ /^[hinp]+$/
           STDERR.puts "Invalid argument: Available search methods are: h, i, n and p."
           exit 1
         end
@@ -94,7 +94,7 @@ class GetSub
   }
 
   def search_engines
-    @options[:methods].to_s.each_char.map do |char|
+    @options[:methods].to_s.each_char.to_a.uniq.map do |char|
       SEARCH_ENGINES[char.to_s].new(server)
     end
   end
