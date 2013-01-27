@@ -26,7 +26,7 @@ You just have to execute `getsub` with some video files in arguments:
 
 Or specify a directory to search recursively:
 
-    $ getsub -d ~/Movies
+    $ getsub ~/Movies
 
 For options details just run:
 
