@@ -1,4 +1,7 @@
 require 'uri'
+require 'net/http'
+require 'zlib'
+require 'stringio'
 
 module OSDb
 
@@ -33,6 +36,18 @@ module OSDb
 
     def uploader_score
       user_ranks.empty? ? 1 : 2
+    end
+
+    def body
+      @body ||= fetch_body
+    end
+
+    def fetch_body
+      StringIO.open do |buffer|
+        buffer.write(Net::HTTP.get(url))
+        buffer.rewind
+        return Zlib::GzipReader.new(buffer).read
+      end
     end
 
   end

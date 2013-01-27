@@ -86,6 +86,7 @@ class GetSub
   end
 
   def report_exception(exception)
+    puts
     puts "Something crashed."
     puts "Feel free to report the error here: https://github.com/byroot/ruby-osdb/issues"
     puts "With the following debug informations:"
@@ -140,31 +141,18 @@ class GetSub
   end
 
   def download_sub!(sub, movie_file)
-    sub_path = movie_file.sub_path(sub.format)
-    download!(sub.url, sub_path)
-  end
-
-  def curl_available?
-    %x{ curl --version 2> /dev/null > /dev/null }
-    $?.success?
-  end
-
-  def wget_available?
-    %x{ wget --version 2> /dev/null > /dev/null }
-    $?.success?
-  end
-
-  def download!(url, local_path)
-    # TODO: use Net::HTTP and ZLib to avoid shell dependency
-    puts "* download #{url} to #{local_path}"
-    if curl_available?
-      %x{ curl -s '#{url}' | gunzip > "#{local_path}" }
-    elsif wget_available?
-      %x{ wget -O - -q '#{url}' | gunzip > "#{local_path}"}
-    else
-      puts "Can't found any curl or wget please install one of them or manualy download your sub"
-      puts url
+    local_path = movie_file.sub_path(sub.format)
+    print "* download #{sub.url} to #{local_path} ... "
+    content = sub.body
+    unless content
+      puts "failed"
+      return
     end
+
+    File.write(movie_file.sub_path(sub.format), 'w+') do |file|
+      file.write(content)
+    end
+    puts "done"
   end
 
 end
