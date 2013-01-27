@@ -74,11 +74,13 @@ class GetSub
 
   def glob(files)
     files.map do |path|
-      return path unless File.directory?(path)
-
-      Dir.chdir(path) do # chdir to avoid escaping special chars in path
-        relative_paths = Dir.glob("**/*.{#{OSDb::MovieFile::EXTENSIONS.join(',')}}")
-        return relative_paths.map{ |f| File.join(path, f) }
+      if File.directory?(path)
+        Dir.chdir(path) do # chdir to avoid escaping special chars in path
+          relative_paths = Dir.glob("**/*.{#{OSDb::MovieFile::EXTENSIONS.join(',')}}")
+          return relative_paths.map{ |f| File.join(path, f) }
+        end
+      else
+        path
       end
     end.flatten
   end
