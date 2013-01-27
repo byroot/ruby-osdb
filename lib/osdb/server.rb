@@ -9,12 +9,21 @@ module OSDb
 
     attr_reader :username, :password, :language, :useragent, :client
 
+    CLIENT_ARGS = [:host, :path, :port, :proxy_host, :proxy_port, :http_user, :http_password, :use_ssl, :timeout]
+
+    DEFAULT_OPTIONS = {
+      :host => 'api.opensubtitles.org',
+      :path => '/xml-rpc',
+      :timeout => 10
+    }.freeze
+
     def initialize(options={})
       @username = options[:username] || ''
       @password = options[:password] || ''
       @language = options[:language] || 'eng'
       @useragent = options[:useragent] || 'ruby-osdb v0.1'
-      @client = ::XMLRPC::Client.new(*options.values_at(:host, :path, :port, :proxy_host, :proxy_port, :http_user, :http_password, :use_ssl, :timeout))
+      options = DEFAULT_OPTIONS.merge(options)
+      @client = ::XMLRPC::Client.new(*options.values_at(*CLIENT_ARGS))
     end
 
     def token

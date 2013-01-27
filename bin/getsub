@@ -133,8 +133,6 @@ class GetSub
 
   def server
     @server ||= OSDb::Server.new(
-      :host => 'api.opensubtitles.org',
-      :path => '/xml-rpc', 
       :timeout => 90, 
       :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
     ) 
