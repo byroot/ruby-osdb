@@ -49,7 +49,7 @@ class GetSub
   def run!(files)
     @parser.parse!
 
-    movie_files = files.map{ |path| OSDb::MovieFile.new(path) }
+    movie_files = glob(files).map{ |path| OSDb::MovieFile.new(path) }
 
     movie_files.each do |movie_file|
       begin
@@ -70,6 +70,17 @@ class GetSub
         report_exception(e)
       end
     end
+  end
+
+  def glob(files)
+    files.map do |path|
+      return path unless File.directory?(path)
+
+      Dir.chdir(path) do # chdir to avoid escaping special chars in path
+        relative_paths = Dir.glob("**/*.{#{OSDb::MovieFile::EXTENSIONS.join(',')}}")
+        return relative_paths.map{ |f| File.join(path, f) }
+      end
+    end.flatten
   end
 
   def report_exception(exception)
