@@ -147,7 +147,7 @@ class GetSub
       return
     end
 
-    File.write(movie_file.sub_path(sub.format), 'w+') do |file|
+    File.open(movie_file.sub_path(sub.format), 'w+') do |file|
       file.write(content)
     end
     puts "done"
