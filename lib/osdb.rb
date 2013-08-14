@@ -2,6 +2,8 @@ require 'xmlrpc/client'
 
 module OSDb
   base_path = File.expand_path(File.dirname(__FILE__) + '/osdb')
+  require "#{base_path}/xmlrpc_monkey_patch"
+
   autoload :Finder,         "#{base_path}/finder"
   autoload :Language,       "#{base_path}/language"
   autoload :Movie,          "#{base_path}/movie"
