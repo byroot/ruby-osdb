@@ -43,7 +43,7 @@ class GetSub
   end
 
   def env_lang
-    OSDb::Language.from_locale(ENV['LANG'])
+    OSDb::Language.from_locale(ENV['LANG'] || 'en_US.UTF-8')
   end
 
   def run!(files)
