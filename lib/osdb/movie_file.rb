@@ -15,8 +15,8 @@ module OSDb
       exist
     end
 
-    def sub_path(format)
-      path.gsub(File.extname(path), ".#{format}")
+    def sub_path(format, language)
+	path.gsub(File.extname(path), ".#{language.to_iso639_2b}.#{format}")
     end
     
     def hash
