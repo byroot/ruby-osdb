@@ -139,7 +139,7 @@ class GetSub
   end
 
   def download_sub!(sub, movie_file)
-    local_path = movie_file.sub_path(sub.format)
+    local_path = movie_file.sub_path(sub.format, sub.language)
     print "* download #{sub.url} to #{local_path} ... "
     content = sub.body
     unless content
@@ -147,7 +147,7 @@ class GetSub
       return
     end
 
-    File.open(movie_file.sub_path(sub.format), 'w+') do |file|
+    File.open(movie_file.sub_path(sub.format, sub.language), 'w+') do |file|
       file.write(content)
     end
     puts "done"
