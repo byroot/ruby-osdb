@@ -18,9 +18,9 @@ module OSDb
 
     def sub_path(format)
       extension = if !@language.nil?
-	".#{@language}.#{format}"
+        ".#{@language}.#{format}"
       else
-	".#{format}"
+        ".#{format}"
       end
       path.gsub(File.extname(path), extension)
     end
