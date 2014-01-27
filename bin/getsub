@@ -30,7 +30,7 @@ class GetSub
 
       opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
 
-      opts.on("-x", "--language-extension", "Add the ISO 639-2 in the subtitle's file extension. e.g filename.eng.srt" ) { @options[:language_extension] = true }
+      opts.on("-L", "--language-extension", "Add the ISO 639-2 in the subtitle's file extension. e.g filename.eng.srt" ) { @options[:language_extension] = true }
 
       methods_help = "Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on OSDb, p: by filename on OSDb. e.g -s hi . Default: h"
       opts.on("-s", "--search-by METHODS", methods_help) do |methods|
