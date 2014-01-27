@@ -8,7 +8,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'osdb'))
 class GetSub
 
   def initialize
-    @options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil, :methods => 'h'}
+    @options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil, :methods => 'h', :language_extension => false }
     @parser ||= OptionParser.new do |opts|
       opts.banner = "Automatically download subs for your video files using opensubtitle.org"
       opts.separator ""
@@ -30,6 +30,8 @@ class GetSub
 
       opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
 
+      opts.on("-L", "--language-extension", "Add the ISO 639-2 in the subtitle's file extension. e.g filename.eng.srt" ) { @options[:language_extension] = true }
+
       methods_help = "Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on OSDb, p: by filename on OSDb. e.g -s hi . Default: h"
       opts.on("-s", "--search-by METHODS", methods_help) do |methods|
         unless methods =~ /^[hinp]+$/
@@ -48,8 +50,9 @@ class GetSub
 
   def run!(files)
     @parser.parse!
+    language = @options[:language] if @options[:language_extension]
 
-    movie_files = glob(files).map{ |path| OSDb::MovieFile.new(path) }
+    movie_files = glob(files).map{ |path| OSDb::MovieFile.new(path, language) }
 
     movie_files.each do |movie_file|
       begin

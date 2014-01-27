@@ -3,20 +3,26 @@ module OSDb
 
     EXTENSIONS = %w(avi mpg m4v mkv mov ogv mp4)
 
-    attr_reader :path
+    attr_reader :path, :language
 
-    def initialize(path)
+    def initialize(path, language)
       @path = path
+      @language = language
     end
 
     def has_sub?
       exist = false
-      %w(.srt .sub).each{ |ext| exist ||= File.exist?(path.gsub(File.extname(path), ext)) }
+      %w(srt sub).each{ |ext| exist ||= File.exist?(sub_path(ext)) }
       exist
     end
 
     def sub_path(format)
-      path.gsub(File.extname(path), ".#{format}")
+      extension = if @language
+        ".#{@language}.#{format}"
+      else
+        ".#{format}"
+      end
+      path.gsub(File.extname(path), extension)
     end
     
     def hash
