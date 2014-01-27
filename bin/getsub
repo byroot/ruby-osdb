@@ -50,11 +50,7 @@ class GetSub
 
   def run!(files)
     @parser.parse!
-    language = if @options[:language_extension]
-      @options[:language]
-    else
-      nil
-    end
+    language = @options[:language] if @options[:language_extension]
 
     movie_files = glob(files).map{ |path| OSDb::MovieFile.new(path, language) }
 
