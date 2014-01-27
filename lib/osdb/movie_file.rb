@@ -17,7 +17,7 @@ module OSDb
     end
 
     def sub_path(format)
-      extension = if !@language.nil?
+      extension = if @language
         ".#{@language}.#{format}"
       else
         ".#{format}"
