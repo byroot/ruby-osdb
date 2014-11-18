@@ -13,4 +13,9 @@ module OSDb
   autoload :Server,         "#{base_path}/server"
   autoload :Sub,            "#{base_path}/sub"
   autoload :SubtitleFinder, "#{base_path}/subtitle_finder"
+
+  def self.default_language
+    OSDb::Language.from_locale(ENV['LANG'] || 'en_US.UTF-8')
+  end
+
 end

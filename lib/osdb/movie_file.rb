@@ -5,7 +5,7 @@ module OSDb
 
     attr_reader :path, :language
 
-    def initialize(path, language)
+    def initialize(path, language = OSDb.default_language)
       @path = path
       @language = language
     end

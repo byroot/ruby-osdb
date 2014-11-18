@@ -8,7 +8,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'osdb'))
 class GetSub
 
   def initialize
-    @options = {:language => env_lang.to_iso639_2b, :force => false, :dir => nil, :methods => 'h', :language_extension => false }
+    @options = {:language => OSDb.default_language.to_iso639_2b, :force => false, :dir => nil, :methods => 'h', :language_extension => false }
     @parser ||= OptionParser.new do |opts|
       opts.banner = "Automatically download subs for your video files using opensubtitle.org"
       opts.separator ""
@@ -18,7 +18,7 @@ class GetSub
 
       opts.on("-a", "--auto", "Do not ask user to resolve hash conflicts.") { @options[:auto] = true }
 
-      opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{env_lang.to_iso639_2b})") do |language|
+      opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{OSDb.default_language.to_iso639_2b})") do |language|
         if language.to_s.length != 3
           STDERR.puts "Invalid argument: Language should specified as ISO 639-2 (ie, 3 letters, like 'eng' or 'fre')"
           exit 1
@@ -42,10 +42,6 @@ class GetSub
       end
 
     end
-  end
-
-  def env_lang
-    OSDb::Language.from_locale(ENV['LANG'] || 'en_US.UTF-8')
   end
 
   def run!(files)
