@@ -9,4 +9,10 @@ describe OSDb::MovieFile do
   its(:hash) { should == '243339b48f4e8741' }
   its(:name) { should == 'somemovie' }
   
+  describe '#sub_path' do
+    it 'should only change the extension of the movie' do
+        movie_file = OSDb::MovieFile.new('directory-with-extension.avi/movie-file.avi', false)
+        movie_file.sub_path('srt').should == 'directory-with-extension.avi/movie-file.srt'
+    end
+  end
 end
