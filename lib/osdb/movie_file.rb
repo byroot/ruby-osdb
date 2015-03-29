@@ -22,7 +22,7 @@ module OSDb
       else
         ".#{format}"
       end
-      path.gsub(File.extname(path), extension)
+      File.join(File.dirname(path), File.basename(path, File.extname(path)) + extension)
     end
     
     def hash
