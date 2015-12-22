@@ -55,7 +55,7 @@ module OSDb
     def search_imdb(options={})
       query = options.delete(:query)
       imdb = client.call('SearchMoviesOnIMDB', token, query)['data']
-      imdb ? imdb.map{ |i| OpenStruct.new(:imdbid => i['id'], :title => i['title']) } : []
+      imdb.size > 0 ? imdb.map{ |i| OpenStruct.new(:imdbid => i['id'], :title => i['title']) } : []
     end
 
     def info
