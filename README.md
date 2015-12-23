@@ -32,3 +32,17 @@ Or specify a directory to search recursively:
 For options details just run:
 
     $ getsub --help
+    
+    
+    Automatically download subs for your video files using opensubtitle.org
+
+Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]
+
+Main options:
+    -a, --auto                       Do not ask user to resolve hash conflicts.
+    -l, --language LANGUAGE          Sub language ISO 639-2 code like fre or eng. Default: env $LANG (pob)
+    -f, --force                      Download sub even if video already has one
+    -t, --type FORMATS               Select only subtitles in specified formats. e.g -t srt,sub
+    -L, --language-extension         Add the ISO 639-2 in the subtitle's file extension. e.g filename.eng.srt
+    -s, --search-by METHODS          Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on OSDb, p: by filename on OSDb. e.g -s hi . Default: h
+
