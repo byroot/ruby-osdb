@@ -3,7 +3,7 @@
 Client library for the [OSDb protocol](http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC).
 Currently the implentation is limited to movie identification and subtitles search
 
-[![Build Status](https://secure.travis-ci.org/byroot/ruby-osdb.png)](http://travis-ci.org/byroot/ruby-osdb)
+[![Build Status](https://secure.travis-ci.org/evandrojr/ruby-osdb.png)](http://travis-ci.org/byroot/ruby-osdb)
 [![Gem Version](https://badge.fury.io/rb/osdb.png)](http://badge.fury.io/rb/osdb)
 
 ## Examples
