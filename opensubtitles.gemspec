@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Evandro Jr"]
   s.email       = ["evandrojr@gmail.com"]
   s.homepage    = %q{http://github.com/evandrojr/opensubtitles}
-  s.summary     = %q{Ruby library to access Opensubtitles services like OpenSubtitles.org}
+  s.summary     = %q{Ruby library to access subtitles services like OpenSubtitles.org}
 
   s.rubyforge_project = "opensubtitles"
 
