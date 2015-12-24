@@ -1,0 +1,342 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://api.opensubtitles.org/xml-rpc
+    body: 
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>GetIMDBMovieDetails</methodName><params><param><value><string>qtqkphpa0us78eikqtdtg4jic7</string></value></param><param><value><string>0176415</string></value></param></params></methodCall>
+
+    headers: 
+      Accept: 
+      - "*/*"
+      Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7
+      Content-Length: 
+      - "236"
+      User-Agent: 
+      - XMLRPC::Client (Ruby 1.8.7)
+      Content-Type: 
+      - text/xml; charset=utf-8
+      Connection: 
+      - keep-alive
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      X-Cache: 
+      - MISS
+      Age: 
+      - "0"
+      X-Cache-Backend: 
+      - www
+      Cache-Control: 
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Set-Cookie: 
+      - PHPSESSID=qtqkphpa0us78eikqtdtg4jic7; path=/
+      Pragma: 
+      - no-cache
+      Expires: 
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Content-Length: 
+      - "6866"
+      Content-Type: 
+      - text/xml
+      Connection: 
+      - keep-alive
+      Accept-Ranges: 
+      - bytes
+      Date: 
+      - Sun, 04 Nov 2012 17:11:59 GMT
+    body: 
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <methodResponse>
+        <params>
+         <param>
+          <value>
+           <struct>
+            <member>
+             <name>status</name>
+             <value>
+              <string>200 OK</string>
+             </value>
+            </member>
+            <member>
+             <name>data</name>
+             <value>
+              <struct>
+               <member>
+                <name>cast</name>
+                <value>
+                 <struct>
+                  <member>
+                   <name>_0273178</name>
+                   <value>
+                    <string>Fernando Fern&#195;&#161;n G&#195;&#179;mez</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0022264</name>
+                   <value>
+                    <string>Rafael Alonso</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0347201</name>
+                   <value>
+                    <string>Cayetana Guill&#195;&#169;n Cuervo</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0328020</name>
+                   <value>
+                    <string>Agust&#195;&#173;n Gonz&#195;&#161;lez</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0190285</name>
+                   <value>
+                    <string>Cristina Cruz</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0747510</name>
+                   <value>
+                    <string>Alicia Rozas</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0347218</name>
+                   <value>
+                    <string>Fernando Guill&#195;&#169;n</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0685037</name>
+                   <value>
+                    <string>Francisco Piquer</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0557456</name>
+                   <value>
+                    <string>Mar&#195;&#173;a Massip</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0137138</name>
+                   <value>
+                    <string>Jos&#195;&#169; Caride</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0019330</name>
+                   <value>
+                    <string>Francisco Algora</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0169358</name>
+                   <value>
+                    <string>Emma Cohen</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0130703</name>
+                   <value>
+                    <string>Juan Calot</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0350881</name>
+                   <value>
+                    <string>Concha G&#195;&#179;mez Conde</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0736047</name>
+                   <value>
+                    <string>Nuria Rodr&#195;&#173;guez</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+               </member>
+               <member>
+                <name>writers</name>
+                <value>
+                 <struct>
+                  <member>
+                   <name>_0305054</name>
+                   <value>
+                    <string>Jos&#195;&#169; Luis Garci</string>
+                   </value>
+                  </member>
+                  <member>
+                   <name>_0701918</name>
+                   <value>
+                    <string>Benito P&#195;&#169;rez Gald&#195;&#179;s</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+               </member>
+               <member>
+                <name>rating</name>
+                <value>
+                 <string>7.4</string>
+                </value>
+               </member>
+               <member>
+                <name>kind</name>
+                <value>
+                 <string>movie</string>
+                </value>
+               </member>
+               <member>
+                <name>cover</name>
+                <value>
+                 <string>http://ia.media-imdb.com/images/M/MV5BMTkwNzIxMTgzMF5BMl5BanBnXkFtZTYwOTkyMTA5._V1._SY317_CR5,0,214,317_.jpg</string>
+                </value>
+               </member>
+               <member>
+                <name>awards</name>
+                <value>
+                 <array>
+                  <data>
+                   <value>
+                    <string>Nominated for Oscar. Another 9 wins &#38; 17 nominations</string>
+                   </value>
+                  </data>
+                 </array>
+                </value>
+               </member>
+               <member>
+                <name>genres</name>
+                <value>
+                 <array>
+                  <data>
+                   <value>
+                    <string>Drama</string>
+                   </value>
+                  </data>
+                 </array>
+                </value>
+               </member>
+               <member>
+                <name>id</name>
+                <value>
+                 <string>0176415</string>
+                </value>
+               </member>
+               <member>
+                <name>votes</name>
+                <value>
+                 <string>1056</string>
+                </value>
+               </member>
+               <member>
+                <name>country</name>
+                <value>
+                 <array>
+                  <data>
+                   <value>
+                    <string>Spain</string>
+                   </value>
+                  </data>
+                 </array>
+                </value>
+               </member>
+               <member>
+                <name>language</name>
+                <value>
+                 <array>
+                  <data>
+                   <value>
+                    <string>Spanish</string>
+                   </value>
+                  </data>
+                 </array>
+                </value>
+               </member>
+               <member>
+                <name>directors</name>
+                <value>
+                 <struct>
+                  <member>
+                   <name>_0305054</name>
+                   <value>
+                    <string>Jos&#195;&#169; Luis Garci</string>
+                   </value>
+                  </member>
+                 </struct>
+                </value>
+               </member>
+               <member>
+                <name>duration</name>
+                <value>
+                 <string>151 min</string>
+                </value>
+               </member>
+               <member>
+                <name>plot</name>
+                <value>
+                 <string>After his son dies, an elderly man comes back to Spain from the US and hopes to find out which of his granddaughters is true, and which one is bastard.</string>
+                </value>
+               </member>
+               <member>
+                <name>title</name>
+                <value>
+                 <string>El abuelo</string>
+                </value>
+               </member>
+               <member>
+                <name>aka</name>
+                <value>
+                 <array>
+                  <data>
+                   <value>
+                    <string>The Grandfather (Canada (English title) / International (English title) / USA)</string>
+                   </value>
+                   <value>
+                    <string>A nagyapa (Hungary (imdb display title))</string>
+                   </value>
+                   <value>
+                    <string>Dziadek (Poland)</string>
+                   </value>
+                  </data>
+                 </array>
+                </value>
+               </member>
+               <member>
+                <name>year</name>
+                <value>
+                 <string>1998</string>
+                </value>
+               </member>
+               <member>
+                <name>request_from</name>
+                <value>
+                 <string>cache_redis</string>
+                </value>
+               </member>
+              </struct>
+             </value>
+            </member>
+            <member>
+             <name>seconds</name>
+             <value>
+              <double>0.005</double>
+             </value>
+            </member>
+           </struct>
+          </value>
+         </param>
+        </params>
+        </methodResponse>
+
+    http_version: 
+  recorded_at: Sun, 04 Nov 2012 17:12:00 GMT
+recorded_with: VCR 2.3.0

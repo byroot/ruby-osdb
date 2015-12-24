@@ -1,0 +1,157 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'uri'
+require 'rubygems'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'opensubtitles'))
+
+
+class GetSub
+
+  def initialize
+    @options = {:language => Opensubtitles.default_language.to_iso639_2b, :force => false, :dir => nil, :methods => 'h', :language_extension => false }
+    @parser ||= OptionParser.new do |opts|
+      opts.banner = "Automatically download subs for your video files using opensubtitle.org"
+      opts.separator ""
+      opts.separator "Usage: getsub [options] DIRECTORY | VIDEO_FILE [VIDEO_FILE ...]"
+      opts.separator ""
+      opts.separator "Main options:"
+
+      opts.on("-a", "--auto", "Do not ask user to resolve hash conflicts.") { @options[:auto] = true }
+
+      opts.on("-l", "--language LANGUAGE", "Sub language ISO 639-2 code like fre or eng. Default: env $LANG (#{Opensubtitles.default_language.to_iso639_2b})") do |language|
+        if language.to_s.length != 3
+          STDERR.puts "Invalid argument: Language should specified as ISO 639-2 (ie, 3 letters, like 'eng' or 'fre')"
+          exit 1
+        end
+        @options[:language] = language.to_s
+      end
+
+      opts.on("-f", "--force", "Download sub even if video already has one") { @options[:force] = true }
+
+      opts.on("-t", "--type FORMATS", "Select only subtitles in specified formats. e.g -t srt,sub") { |formats| @options[:formats] = formats.to_s.split(',') }
+
+      opts.on("-L", "--language-extension", "Add the ISO 639-2 in the subtitle's file extension. e.g filename.eng.srt" ) { @options[:language_extension] = true }
+
+      methods_help = "Ordered list of search methods. h: by movie hash, i: by name on IMDB, n: by name on Opensubtitles, p: by filename on Opensubtitles. e.g -s hi . Default: h"
+      opts.on("-s", "--search-by METHODS", methods_help) do |methods|
+        unless methods =~ /^[hinp]+$/
+          STDERR.puts "Invalid argument: Available search methods are: h, i, n and p."
+          exit 1
+        end
+        @options[:methods] = methods
+      end
+
+    end
+  end
+
+  def run!(files)
+    @parser.parse!
+    language = @options[:language] if @options[:language_extension]
+
+    movie_files = glob(files).map{ |path| Opensubtitles::MovieFile.new(path, language) }
+
+    movie_files.each do |movie_file|
+      begin
+        puts "* Search subtitles for #{movie_file.name}"
+        if movie_file.has_sub? && !@options[:force]
+          puts "* Sub already there. To override it use --force"
+          puts
+          next
+        end
+
+        if sub = subtitle_finder.find_sub_for(movie_file, @options[:language])
+          download_sub!(sub, movie_file)
+        else
+          puts "* No sub found"
+        end
+        puts
+      rescue Exception => e
+        report_exception(e)
+      end
+    end
+  end
+
+  def glob(files)
+    files.map do |path|
+      if File.directory?(path)
+        Dir.chdir(path) do # chdir to avoid escaping special chars in path
+          relative_paths = Dir.glob("**/*.{#{Opensubtitles::MovieFile::EXTENSIONS.join(',')}}")
+          return relative_paths.map{ |f| File.join(path, f) }
+        end
+      else
+        path
+      end
+    end.flatten
+  end
+
+  def report_exception(exception)
+    puts
+    puts "Something crashed."
+    puts "Feel free to report the error here: https://github.com/byroot/opensubtitles/issues"
+    puts "With the following debug informations:"
+    puts
+    puts "#{exception.class.name}: #{exception.message}:"
+    puts exception.backtrace
+    puts
+  end
+
+  def subtitle_finder
+    @subtitle_finder ||= Opensubtitles::SubtitleFinder.new(search_engines, finders, selectors)
+  end
+
+  SEARCH_ENGINES = {
+    'h' => Opensubtitles::Search::MovieHash,
+    'i' => Opensubtitles::Search::IMDB,
+    'n' => Opensubtitles::Search::Name,
+    'p' => Opensubtitles::Search::Path
+  }
+
+  def search_engines
+    @options[:methods].to_s.each_char.to_a.uniq.map do |char|
+      SEARCH_ENGINES[char.to_s].new(server)
+    end
+  end
+
+  def finders
+    [Opensubtitles::Finder::Score.new]
+  end
+
+  def selectors
+    movie_finder = if @options[:auto]
+      Opensubtitles::Finder::First.new # TODO: try to match subtitle movie name with filename
+    else
+      Opensubtitles::Finder::Interactive.new
+    end
+    
+    selectors = [
+      Opensubtitles::Selector::Movie.new(movie_finder)
+    ]
+    selectors << Opensubtitles::Selector::Format.new(@options[:formats]) if @options[:formats]
+    selectors
+  end
+
+  def server
+    @server ||= Opensubtitles::Server.new(
+      :timeout => 90, 
+      :useragent => "SubDownloader 2.0.10" # register useragent ? WTF ? too boring.
+    ) 
+  end
+
+  def download_sub!(sub, movie_file)
+    local_path = movie_file.sub_path(sub.format)
+    print "* download #{sub.url} to #{local_path} ... "
+    content = sub.body
+    unless content
+      puts "failed"
+      return
+    end
+
+    File.open(movie_file.sub_path(sub.format), 'w+') do |file|
+      file.write(content)
+    end
+    puts "done"
+  end
+
+end
+
+GetSub.new.run!(ARGV)
