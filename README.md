@@ -1,8 +1,9 @@
 # Opensubtitles
 
 Client library for the [Opensubtitles protocol](http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC).
-Currently the implentation is limited to movie identification and subtitles search
+Currently the implentation is limited to movie identification and subtitles search.
 
+[![Gem Version](https://badge.fury.io/rb/opensubtitles.svg)](https://badge.fury.io/rb/opensubtitles)
 [![Build Status](https://secure.travis-ci.org/evandrojr/opensubtitles.png)](http://travis-ci.org/evandrojr/opensubtitles)
 
 ## Examples
