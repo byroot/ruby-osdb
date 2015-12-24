@@ -17,10 +17,4 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   s.license       = 'MIT'
-
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'rspec-its'
-  s.add_development_dependency 'webmock', '~> 1.8.11'
-  s.add_development_dependency 'vcr', '~> 2.3.0'
 end
